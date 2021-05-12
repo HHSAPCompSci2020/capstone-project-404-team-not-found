@@ -68,10 +68,12 @@ public class TetrisBlock {
 	}
 	
 	public void move(boolean isRight) {
-		if (isRight) {
-			x += 10;
-		} else {
-			x -= 10;
+		for (int i = 0; i < lines.size(); i++) {
+			if (isRight) {
+				lines.get(i).move(30, 0);
+			} else {
+				lines.get(i).move(-30, 0);
+			}
 		}
 	}
 	

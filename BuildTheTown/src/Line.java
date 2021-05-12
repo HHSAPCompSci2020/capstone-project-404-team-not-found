@@ -32,6 +32,14 @@ public class Line {
 		return false;
 	}
 	
+	public void move(double x, double y) {
+		this.x += x;
+		this.y += y;
+		this.x2 += x;
+		this.y2 += y;
+		
+	}
+	
 	public double getX() {
 		return x;
 	}

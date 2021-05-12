@@ -19,7 +19,9 @@ public class DrawingSurface extends PApplet{
 	 * Draws all the Tetris and Town on to the window 
 	 */
 	public void draw() {
-		
+		TetrisBlock tetrisBlock = new TetrisBlock(4);
+		tetrisBlock.move(true);
+		tetrisBlock.draw(this);
 	}
 	
 	public void mousePressed() {
