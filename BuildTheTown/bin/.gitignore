@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /BuildingBlock.class
 /DrawingSurface.class
 /Main.class
@@ -5,3 +6,6 @@
 /Tetris.class
 /TetrisBlock.class
 /Town.class
+=======
+/Line.class
+>>>>>>> ff0cc011adf20705b1e0aa50589a5f5ff9b95ce7
