@@ -1,6 +1,6 @@
 ﻿Rebuild the Town
 Authors: Anya Agrawal, Tarini Maram, Joanna Huang
-Revision: 04/27/2021
+Revision: 05/14/2021
 
 
 Introduction: 
@@ -18,10 +18,14 @@ There was a tornado that threw a bunch of blocks into the air, so the player has
 
 
 What are the rules? What is the goal?
+Tetris Rules:
 1. You must rotate the block before it is within 3 rows from the highest filled row. 
 2. As long as you don’t reach the danger line with now more moves left, you can keep playing. In the chance that you do, game over. 
-3. The goal is to score as many points as possible. The game is never-ending unless the circumstances in rule 2 are met. The incentive is to beat your previous high score or even your friends’
-4. Who would want to use your program?
+3. The goal is to score as many points as possible. The game is never-ending unless the circumstances in rule 2 are met. The incentive is to beat your previous high score or even your friends’.
+Building Rules:
+1. Use blocks collected from the Tetris game to build a town.
+2. Keep placing blocks until no more blocks are left.
+Who would want to use your program?
 Our game is entertaining and playable by people of all ages, of all genders, that are from anywhere in the world. People that are bored and want a fun and simple thing to do to pass time would use this program. 
 
 
@@ -66,8 +70,6 @@ Stretch Features:
 * A more established storyline where the player had to complete challenges in the town to rebuild and restore it. 
 
 
-
-
 Class List:
 [This section lists the Java classes that make up the program and very briefly describes what each represents. It’s totally fine to put this section in list format and not to use full sentences.]
 * Main
@@ -76,7 +78,8 @@ Class List:
 * Tetris (describes rules/functions for the game, has an array of TetrisBlocks, detects when a row is created)
 * TetrisBlock (several possible shapes, has methods that detect when it is touching another TetrisBlock, draw(), rotate(), move())
 * Town (open space where user can place blocks and build structures, has an array of BuildingBlocks, methods/rules that describe how the user can move and place/delete blocks)
-* BuildingBlock (rectangular/square block, has methods that detect when it is touching another BuildingBlock, draw(), will possibly have fields for color/texture) 
+* BuildingBlock (square block, has methods that detect when it is touching another BuildingBlock, draw(), will possibly have fields for color/texture) 
+* Line (represents a horizontal or vertical line that can move, be rotated, detect intersections)
 
 
 Credits:
@@ -92,7 +95,7 @@ Joanna
 
 
 Tarini
-- TetrisBlock, Tetris
+- TetrisBlock, Tetris, Line
 
 
 Anya
