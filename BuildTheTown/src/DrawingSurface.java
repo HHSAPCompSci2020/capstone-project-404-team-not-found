@@ -25,7 +25,7 @@ public class DrawingSurface extends PApplet{
 		//TetrisBlock block2 = new TetrisBlock(0, 0, 3);
 		//tetrisBlock.move(true);
 		//tetrisBlock.move(true);
-		tetrisBlock.act();
+		tetrisBlock.fall();
 		tetrisBlock.draw(this);
 		//block2.draw(this);
 		//System.out.println(tetrisBlock.isTouching(block2));

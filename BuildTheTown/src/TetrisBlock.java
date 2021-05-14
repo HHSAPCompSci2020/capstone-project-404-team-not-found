@@ -65,7 +65,7 @@ public class TetrisBlock {
 		
 	}
 	
-	public void act() {
+	public void fall() {
 		for (int i = 0; i < lines.size(); i++) {
 			Line line = lines.get(i);
 			line.move(0, velocity);
@@ -88,13 +88,18 @@ public class TetrisBlock {
 		for (int i = 0; i < lines.size(); i++) {
 			for (int j = 0; j < block.getLines().size(); j++) {
 				//System.out.println("i: " + i + "j: " + j);
-				if (i == 5 && j == 1) {
-					System.out.println("Line I: (" + lines.get(i).getX() + "," + lines.get(i).getY() + ") ("
-							+ lines.get(i).getX2() + "," + lines.get(i).getY2() + ")");
-				}
 				if (lines.get(i).overlaps(block.getLines().get(j))) {
 					return true;
 				}
+			}
+		}
+		return false;
+	}
+	
+	public boolean isTouching(Line line) {
+		for (int i = 0; i < lines.size(); i++) {
+			if (lines.get(i).overlaps(line)) {
+				return true;
 			}
 		}
 		return false;
