@@ -7,7 +7,7 @@ public class DrawingSurface extends PApplet{
 	TetrisBlock tetrisBlock = new TetrisBlock(0, 0, 2);
 	
 	public DrawingSurface() {
-		tetris = new Tetris();
+		tetris = new Tetris(this);
 		town = new Town(3);
 	}
 	

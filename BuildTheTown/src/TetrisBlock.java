@@ -11,11 +11,13 @@ public class TetrisBlock {
 	private double x,y;
 	private double velocity;
 	private ArrayList<Line> lines = new ArrayList<Line>();
+	private int type;
 	
 	public TetrisBlock (int x, int y, int type) {
 		this.x = x;
 		this.y = y;
 		velocity = 1.2;
+		this.type = type;
 		switch (type) {
 			case 1: 
 				lines.add(new Line(x, y, x+120, y));
@@ -80,8 +82,10 @@ public class TetrisBlock {
 		for (int i = 0; i < lines.size(); i++) {
 			if (isRight) {
 				lines.get(i).move(30, 0);
+				x += 30;
 			} else {
 				lines.get(i).move(-30, 0);
+				x -= 30;
 			}
 		}
 	}
@@ -107,7 +111,24 @@ public class TetrisBlock {
 		return false;
 	}
 	
+	public void stopFall() {
+		velocity = 0;
+	}
+	
+	public int getType() {
+		return type;
+	}
+	
+	public double getX() {
+		return x;
+	}
+	
+	public double getY() {
+		return y;
+	}
+	
 	private ArrayList<Line> getLines() {
 		return lines;
 	}
+	
 }
