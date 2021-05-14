@@ -8,13 +8,11 @@ public class DrawingSurface extends PApplet{
 	private Town town;
 	TetrisBlock tetrisBlock = new TetrisBlock(0, 0, 2);
 	Dimension r = Toolkit.getDefaultToolkit().getScreenSize();
-	
+	private boolean fall;
 	public DrawingSurface() {
 		tetris = new Tetris(this);
 		town = new Town(3, width);
-
-		tetris = new Tetris(this);
-		town = new Town(3, r.getHeight());
+		fall = true;
 	}
 	
 	
@@ -32,7 +30,7 @@ public class DrawingSurface extends PApplet{
 //		TetrisBlock block2 = new TetrisBlock(0, 0, 3);
 //		tetrisBlock.move(true);
 //		tetrisBlock.move(true);
-		tetrisBlock.fall();
+
 //		TetrisBlock block2 = new TetrisBlock(0, 0, 2);
 		//tetrisBlock.move(true);
 		//tetrisBlock.move(true);
@@ -43,6 +41,15 @@ public class DrawingSurface extends PApplet{
 		town.draw(this, width);
 		town.act();
 		
+		if(fall) {
+			tetrisBlock.fall();
+		}
+		
+		Line bottom = new Line(0, height, width, height);
+		if(tetrisBlock.isTouching(bottom)) {
+			fall = false;
+			tetrisBlock.stopFall();
+		}
 //		town.act(getWidth(), windowHeight);
 //		block2.draw(this);
 //		System.out.println(tetrisBlock.isTouching(block2));

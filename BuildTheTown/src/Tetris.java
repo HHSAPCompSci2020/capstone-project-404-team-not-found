@@ -30,6 +30,7 @@ public class Tetris {
 		fallingBlock.fall();
 		if (fallingBlock.isTouching(bottom)) {
 			placedBlocks.add(fallingBlock);
+			fallingBlock.stopFall();
 			resetFallingBlock();
 		} 
 		
@@ -56,6 +57,13 @@ public class Tetris {
 //				}
 //			}
 //		}
+	}
+	
+	public void draw(PApplet marker) {
+		fallingBlock.draw(marker);
+		for (int i = 0; i < placedBlocks.size(); i++) {
+			placedBlocks.get(i).draw(marker);
+		}
 	}
 	
 	public int end() {
