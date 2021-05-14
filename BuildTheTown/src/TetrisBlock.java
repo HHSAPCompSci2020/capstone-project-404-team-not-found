@@ -12,12 +12,14 @@ public class TetrisBlock {
 	private double velocity;
 	private ArrayList<Line> lines = new ArrayList<Line>();
 	private int type;
+	private boolean rotated; 
 	
 	public TetrisBlock (int x, int y, int type) {
 		this.x = x;
 		this.y = y;
 		velocity = 1.2;
 		this.type = type;
+		rotated = false;
 		switch (type) {
 			case 1: 
 				lines.add(new Line(x, y, x+120, y));
@@ -67,6 +69,7 @@ public class TetrisBlock {
 		for (int i = 0; i < lines.size(); i++) {
 			lines.get(i).rotate();
 		}
+		rotated = !rotated;
 	}
 	
 	public void fall() {
@@ -125,6 +128,10 @@ public class TetrisBlock {
 	
 	public double getY() {
 		return y;
+	}
+	
+	public boolean getRotation() {
+		return rotated;
 	}
 	
 	private ArrayList<Line> getLines() {

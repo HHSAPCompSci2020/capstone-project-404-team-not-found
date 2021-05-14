@@ -72,8 +72,16 @@ public class Tetris {
 			grid[(int)(fallingBlock.getX()/30) + 1][(int)(fallingBlock.getY()/30)] = true;
 			grid[(int)(fallingBlock.getX()/30) + 1][(int)(fallingBlock.getY()/30) + 1] = true;
 			grid[(int)(fallingBlock.getX()/30)][(int)(fallingBlock.getY()/30) + 1] = true;
-		} else if (fallingBlock.getType() == 1) {
-			
+		} else if (fallingBlock.getType() == 1 && !fallingBlock.getRotation()) {
+			grid[(int)fallingBlock.getX()/30][(int)fallingBlock.getY()/30] = true;
+			grid[(int)fallingBlock.getX()/30][(int)(fallingBlock.getX()/30) + 1] = true;
+			grid[(int)fallingBlock.getX()/30][(int)(fallingBlock.getX()/30) + 2] = true;
+			grid[(int)fallingBlock.getX()/30][(int)(fallingBlock.getX()/30) + 3] = true;
+		} else if (fallingBlock.getType() == 1 && fallingBlock.getRotation()) {
+			grid[(int)fallingBlock.getX()/30][(int)fallingBlock.getY()/30] = true;
+			grid[(int)(fallingBlock.getX()/30) + 1][(int)fallingBlock.getY()/30] = true;
+			grid[(int)(fallingBlock.getX()/30) + 2][(int)fallingBlock.getY()/30] = true;
+			grid[(int)(fallingBlock.getX()/30) + 3][(int)fallingBlock.getY()/30] = true;
 		}
 		fallingBlock.stopFall();
 		placedBlocks.add(fallingBlock);
