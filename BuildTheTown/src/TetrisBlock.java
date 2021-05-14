@@ -66,7 +66,12 @@ public class TetrisBlock {
 	}
 	
 	public void act() {
-		y += y*velocity;
+		for (int i = 0; i < lines.size(); i++) {
+			Line line = lines.get(i);
+			line.move(0, velocity);
+			//System.out.println(lines.get(i).getY());
+		}
+		
 	}
 	
 	public void move(boolean isRight) {

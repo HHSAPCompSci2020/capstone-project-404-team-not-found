@@ -4,6 +4,7 @@ public class DrawingSurface extends PApplet{
 	
 	private Tetris tetris;
 	private Town town;
+	TetrisBlock tetrisBlock = new TetrisBlock(0, 0, 2);
 	
 	public DrawingSurface() {
 		tetris = new Tetris();
@@ -19,13 +20,15 @@ public class DrawingSurface extends PApplet{
 	 * Draws all the Tetris and Town on to the window 
 	 */
 	public void draw() {
-//		TetrisBlock tetrisBlock = new TetrisBlock(0, 0, 2);
-//		TetrisBlock block2 = new TetrisBlock(0, 0, 3);
-//		tetrisBlock.move(true);
-//		tetrisBlock.move(true);
-//		tetrisBlock.draw(this);
-//		block2.draw(this);
-//		System.out.println(tetrisBlock.isTouching(block2));
+		background(255);
+
+		//TetrisBlock block2 = new TetrisBlock(0, 0, 3);
+		//tetrisBlock.move(true);
+		//tetrisBlock.move(true);
+		tetrisBlock.act();
+		tetrisBlock.draw(this);
+		//block2.draw(this);
+		//System.out.println(tetrisBlock.isTouching(block2));
 		
 		
 //		Line l1 = new Line(60, 0, 60, 30);
