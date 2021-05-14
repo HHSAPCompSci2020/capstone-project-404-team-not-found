@@ -9,9 +9,11 @@ import java.util.ArrayList;
 public class Town {
 	
 	private ArrayList<BuildingBlock> blocks;
+	private int blockCount;
 	
-	public Town() {
+	public Town(int blockCount) {
 		blocks = new ArrayList<BuildingBlock>();
+		this.blockCount = blockCount;
 	}
 	
 	/**
@@ -41,7 +43,10 @@ public class Town {
 	 * @param pY The y-coordinate of the point that has been clicked
 	 */
 	public void placeBlock(double pX, double pY) {
-		blocks.add(new BuildingBlock(pX - 25, pY - 25)); // block width is 50
+		if(blockCount > 0) {
+			blocks.add(new BuildingBlock(pX - 25, pY - 25)); // block width is 50
+			blockCount--;
+		}
 	}
 	
 	/**
@@ -54,5 +59,6 @@ public class Town {
 			if(blocks.get(i).isPointInRect(pX, pY))
 				blocks.remove(i);
 		}
+		blockCount++;
 	}
 }

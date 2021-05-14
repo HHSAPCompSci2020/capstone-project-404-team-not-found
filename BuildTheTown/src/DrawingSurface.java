@@ -8,7 +8,7 @@ public class DrawingSurface extends PApplet{
 	
 	public DrawingSurface() {
 		tetris = new Tetris();
-		town = new Town();
+		town = new Town(3);
 	}
 	
 	
@@ -28,6 +28,8 @@ public class DrawingSurface extends PApplet{
 		//tetrisBlock.fall();
 		tetrisBlock.rotate();
 		tetrisBlock.draw(this);
+		
+//		town.act(getWidth(), windowHeight);
 		//block2.draw(this);
 		//System.out.println(tetrisBlock.isTouching(block2));
 		
