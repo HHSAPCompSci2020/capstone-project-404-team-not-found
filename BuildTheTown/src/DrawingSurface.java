@@ -10,7 +10,7 @@ public class DrawingSurface extends PApplet{
 	Dimension r = Toolkit.getDefaultToolkit().getScreenSize();
 	
 	public DrawingSurface() {
-		tetris = new Tetris();
+		tetris = new Tetris(this);
 		town = new Town(3);
 	}
 	
