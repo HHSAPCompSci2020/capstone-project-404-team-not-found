@@ -10,30 +10,32 @@ public class Town {
 	
 	private ArrayList<BuildingBlock> blocks;
 	private int blockCount;
+	private double floorYCoord;
 	
-	public Town(int blockCount) {
+	public Town(int blockCount, double windowHeight) {
 		blocks = new ArrayList<BuildingBlock>();
 		this.blockCount = blockCount;
+		floorYCoord = 9 * windowHeight/10;
 	}
 	
 	/**
 	 * Draws the array of blocks
 	 * @param marker The PApplet with which to draw the blocks
+	 * @param windowWidth The width of the window
 	 */
-	public void draw(PApplet marker) {
+	public void draw(PApplet marker, double windowWidth) {
 		for(int i = 0; i < blocks.size(); i++) {
 			blocks.get(i).draw(marker);
 		}
+		marker.line((float)(0), (float)(floorYCoord), (float)(windowWidth), (float)(floorYCoord));
 	}
 	
 	/**
-	 * Moves the blocks in the array with physics
-	 * @param windowWidth The width of the window
-	 * @param windowHeight The height of the window
+	 * Moves the blocks in the Town with physics
 	 */
-	public void act(double windowWidth, double windowHeight) {
+	public void act() {
 		for(int i = 0; i < blocks.size(); i++) {
-			blocks.get(i).act(blocks, windowWidth, windowHeight);
+			blocks.get(i).act(blocks, floorYCoord);
 		}
 	}
 	

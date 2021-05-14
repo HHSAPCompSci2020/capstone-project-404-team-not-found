@@ -31,12 +31,11 @@ public class BuildingBlock {
 	
 	/**
 	 * Moves this block with physics
-	 * @param windowWidth The width of the window
-	 * @param windowHeight The height of the window
+	 * @param floorYCoord The y-coordinate of the floor
 	 */
-	public void act(ArrayList<BuildingBlock> blocks, double windowWidth, double windowHeight) {
+	public void act(ArrayList<BuildingBlock> blocks, double floorYCoord) {
 		yVelocity += GRAVITY;
-		if(y + WIDTH > windowHeight)// if this block has crossed the bottom
+		if(y + WIDTH > floorYCoord)// if this block has crossed the bottom
 			yVelocity = 0;//           border of the window, stop falling
 		
 		for(int i = 0; i < blocks.size(); i++) {// if this block is touching any other block, stop
