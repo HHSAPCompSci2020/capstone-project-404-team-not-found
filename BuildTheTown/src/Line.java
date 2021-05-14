@@ -40,6 +40,18 @@ public class Line {
 		
 	}
 	
+	/**
+	 * rotates this line 90 degrees clockwise
+	 */
+	public void rotate() {
+		double tempX = x;
+		double tempX2 = x2;
+		x = -y;
+		y = tempX;
+		x = -y2;
+		y2 = tempX2;
+	}
+	
 	public double getX() {
 		return x;
 	}
