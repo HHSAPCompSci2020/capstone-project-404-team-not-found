@@ -23,23 +23,23 @@ public class TetrisBlock {
 				lines.add(new Line(x+120, y+30, x, y+30));
 				lines.add(new Line(x, y+30, x, y));
 				break;
+//			case 2: 
+//				lines.add(new Line(x, y, x+30, y));
+//				lines.add(new Line(x+30, y, x+30, y+60));
+//				lines.add(new Line(x+30, y+60, x+60, y+60));
+//				lines.add(new Line(x+60, y+60, x+60, y+90));
+//				lines.add(new Line(x+60, y+90, x, y+90));
+//				lines.add(new Line(x, y+90, x, y));
+//				break;
+//			case 3: 
+//				lines.add(new Line(x, y, x+60, y));
+//				lines.add(new Line(x+60, y, x+60, y+30));
+//				lines.add(new Line(x+60, y+30, x+30, y+30));
+//				lines.add(new Line(x+30, y+30, x+30, y+90));
+//				lines.add(new Line(x+30, y+90, x, y+90));
+//				lines.add(new Line(x, y+90, x, y));
+//				break;
 			case 2: 
-				lines.add(new Line(x, y, x+30, y));
-				lines.add(new Line(x+30, y, x+30, y+60));
-				lines.add(new Line(x+30, y+60, x+60, y+60));
-				lines.add(new Line(x+60, y+60, x+60, y+90));
-				lines.add(new Line(x+60, y+90, x, y+90));
-				lines.add(new Line(x, y+90, x, y));
-				break;
-			case 3: 
-				lines.add(new Line(x, y, x+60, y));
-				lines.add(new Line(x+60, y, x+60, y+30));
-				lines.add(new Line(x+60, y+30, x+30, y+30));
-				lines.add(new Line(x+30, y+30, x+30, y+90));
-				lines.add(new Line(x+30, y+90, x, y+90));
-				lines.add(new Line(x, y+90, x, y));
-				break;
-			case 4: 
 				lines.add(new Line(x, y, x+60, y));
 				lines.add(new Line(x+60, y, x+60, y+60));
 				lines.add(new Line(x+60, y+60, x, y+60));
@@ -62,7 +62,9 @@ public class TetrisBlock {
 	
 	// rotates by 90 degrees clockwise 
 	public void rotate() {
-		
+		for (int i = 0; i < lines.size(); i++) {
+			lines.get(i).rotate();
+		}
 	}
 	
 	public void fall() {

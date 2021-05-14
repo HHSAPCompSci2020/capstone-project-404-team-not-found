@@ -22,10 +22,11 @@ public class DrawingSurface extends PApplet{
 	public void draw() {
 		background(255);
 
-		//TetrisBlock block2 = new TetrisBlock(0, 0, 3);
+		TetrisBlock block2 = new TetrisBlock(0, 0, 2);
 		//tetrisBlock.move(true);
 		//tetrisBlock.move(true);
-		tetrisBlock.fall();
+		//tetrisBlock.fall();
+		tetrisBlock.rotate();
 		tetrisBlock.draw(this);
 		//block2.draw(this);
 		//System.out.println(tetrisBlock.isTouching(block2));
