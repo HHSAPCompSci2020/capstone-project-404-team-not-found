@@ -12,7 +12,9 @@ public class TetrisBlock {
 	private double velocity;
 	private ArrayList<Line> lines = new ArrayList<Line>();
 	
-	public TetrisBlock (int type) {
+	public TetrisBlock (int x, int y, int type) {
+		this.x = x;
+		this.y = y;
 		velocity = 1.2;
 		switch (type) {
 			case 1: 
@@ -78,6 +80,22 @@ public class TetrisBlock {
 	}
 	
 	public boolean isTouching(TetrisBlock block) {
+		for (int i = 0; i < lines.size(); i++) {
+			for (int j = 0; j < block.getLines().size(); j++) {
+				//System.out.println("i: " + i + "j: " + j);
+				if (i == 5 && j == 1) {
+					System.out.println("Line I: (" + lines.get(i).getX() + "," + lines.get(i).getY() + ") ("
+							+ lines.get(i).getX2() + "," + lines.get(i).getY2() + ")");
+				}
+				if (lines.get(i).overlaps(block.getLines().get(j))) {
+					return true;
+				}
+			}
+		}
 		return false;
+	}
+	
+	private ArrayList<Line> getLines() {
+		return lines;
 	}
 }

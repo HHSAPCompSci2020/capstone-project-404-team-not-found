@@ -26,7 +26,7 @@ public class Line {
 		double bigX2 = getBiggerLine(other).getX2();
 		double bigY2 = getBiggerLine(other).getY2();
 		
-		if (checkIfInBtwn(smallX, bigX, bigX2) && checkIfInBtwn(smallY, bigY, bigX2) && checkIfInBtwn(smallX2, bigX, bigX2) && checkIfInBtwn(smallY2, bigY, bigY2)) {
+		if (checkIfInBtwn(smallX, bigX, bigX2) && checkIfInBtwn(smallY, bigY, bigY2) && checkIfInBtwn(smallX2, bigX, bigX2) && checkIfInBtwn(smallY2, bigY, bigY2)) {
 			return true;
 		}
 		return false;
@@ -70,7 +70,9 @@ public class Line {
 		Line result;
 		if (length1 < length2) {
 			result = this;
+			System.out.println("smaller: this");
 		} else {
+			System.out.println("smaller: other");
 			result = other;
 		}
 		return result;
@@ -80,9 +82,11 @@ public class Line {
 		double length1 = Math.sqrt((y2-y)*(y2-y) + (x2-x)*(x2-x));
 		double length2 = Math.sqrt((other.y2-other.y)*(other.y2-other.y) + (other.x2-other.x)*(other.x2-other.x));
 		Line result;
-		if (length1 > length2) {
+		if (length1 >= length2) {
+			System.out.println("bigger: this");
 			result = this;
 		} else {
+			System.out.println("bigger: other");
 			result = other;
 		}
 		return result;
