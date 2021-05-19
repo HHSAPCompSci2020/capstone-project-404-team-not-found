@@ -46,10 +46,26 @@ public class Line {
 	public void rotate() {
 		double tempX = x;
 		double tempX2 = x2;
-		x = -y;
+		x = y;
 		y = tempX;
-		x = -y2;
+		x2 = y2;
 		y2 = tempX2;
+	}
+	
+	public boolean isHorizontal() {
+		if (y == y2) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	public boolean isVertical() {
+		if (x == x2) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 	
 	public double getX() {
@@ -82,9 +98,9 @@ public class Line {
 		Line result;
 		if (length1 < length2) {
 			result = this;
-			System.out.println("smaller: this");
+			//System.out.println("smaller: this");
 		} else {
-			System.out.println("smaller: other");
+			//System.out.println("smaller: other");
 			result = other;
 		}
 		return result;
@@ -95,10 +111,10 @@ public class Line {
 		double length2 = Math.sqrt((other.y2-other.y)*(other.y2-other.y) + (other.x2-other.x)*(other.x2-other.x));
 		Line result;
 		if (length1 >= length2) {
-			System.out.println("bigger: this");
+			//System.out.println("bigger: this");
 			result = this;
 		} else {
-			System.out.println("bigger: other");
+			//System.out.println("bigger: other");
 			result = other;
 		}
 		return result;

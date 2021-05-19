@@ -2,111 +2,33 @@ import java.util.ArrayList;
 
 import processing.core.PApplet;
 
-/**
- * 
- * @author Tarini Maram
- *
- */
 public class Tetris {
-
-	private ArrayList<TetrisBlock> placedBlocks;
-	private boolean[][] grid;
 	private TetrisBlock fallingBlock;
+	private boolean[][] grid; 
 	private int points;
 	
+	
 	public Tetris(PApplet marker) {
-		placedBlocks = new ArrayList<TetrisBlock>();
-		points = 0;
-		resetFallingBlock();
-		grid = new boolean[marker.width/30][marker.height/30];
+		resetFallingBlock(marker.width);
 	}
 	
-	public void act(PApplet marker) {
-		Line left = new Line(0, 0, 0, marker.height);
-		Line right = new Line(marker.width, 0, marker.width, marker.height);
-		Line top = new Line(0, 0, marker.width, 0);
-		Line bottom = new Line(0, marker.height, marker.width, marker.height);
-		
-		fallingBlock.fall();
-		if (fallingBlock.isTouching(bottom)) {
-			placedBlocks.add(fallingBlock);
-			fallingBlock.stopFall();
-			resetFallingBlock();
-		} 
-		
-		for (int i = 0; i < placedBlocks.size(); i++) {
-			if (placedBlocks.get(i).isTouching(top)) {
-				end();
-			}
-			
-			if (fallingBlock.isTouching(placedBlocks.get(i))) {
-				placedBlocks.add(fallingBlock);
-				resetFallingBlock();
-			}
+	public void resetFallingBlock(int windowWidth) {
+		int type = (int)(Math.random()*2);
+		switch (type) {
+			case 1: 
+				fallingBlock = new RectangleBlock((int)(Math.random()*windowWidth), 0);
+				break;
+			case 2: 
+				fallingBlock = new SquareBlock((int)(Math.random()*windowWidth), 0);
+				break;
 		}
-		
-		if (detectRow() != -1) {
-			points+=50;
-			for (int i = 0; i < grid[0].length; i++) {
-				grid[detectRow()][i] = false;
-			}
-		}
-//		while (!()) {
-//			for (int i = 0; i < placedBlocks.size(); i++) {
-//				if (!(fallingBlock.isTouching(placedBlocks.get(i)))) {
-//				}
-//			}
-//		}
-	}
-	
-	public void draw(PApplet marker) {
-		fallingBlock.draw(marker);
-		for (int i = 0; i < placedBlocks.size(); i++) {
-			placedBlocks.get(i).draw(marker);
-		}
-	}
-	
-	public int end() {
-		return points;
-	}
-	
-	public void resetFallingBlock() {
-		fallingBlock = new TetrisBlock(0, 0, (int)(Math.random()*4));
 	}
 	
 	public void placeBlock() {
-		if (fallingBlock.getType() == 2) {
-			grid[(int)fallingBlock.getX()/30][(int)fallingBlock.getY()/30] = true;
-			grid[(int)(fallingBlock.getX()/30) + 1][(int)(fallingBlock.getY()/30)] = true;
-			grid[(int)(fallingBlock.getX()/30) + 1][(int)(fallingBlock.getY()/30) + 1] = true;
-			grid[(int)(fallingBlock.getX()/30)][(int)(fallingBlock.getY()/30) + 1] = true;
-		} else if (fallingBlock.getType() == 1 && !fallingBlock.getRotation()) {
-			grid[(int)fallingBlock.getX()/30][(int)fallingBlock.getY()/30] = true;
-			grid[(int)fallingBlock.getX()/30][(int)(fallingBlock.getX()/30) + 1] = true;
-			grid[(int)fallingBlock.getX()/30][(int)(fallingBlock.getX()/30) + 2] = true;
-			grid[(int)fallingBlock.getX()/30][(int)(fallingBlock.getX()/30) + 3] = true;
-		} else if (fallingBlock.getType() == 1 && fallingBlock.getRotation()) {
-			grid[(int)fallingBlock.getX()/30][(int)fallingBlock.getY()/30] = true;
-			grid[(int)(fallingBlock.getX()/30) + 1][(int)fallingBlock.getY()/30] = true;
-			grid[(int)(fallingBlock.getX()/30) + 2][(int)fallingBlock.getY()/30] = true;
-			grid[(int)(fallingBlock.getX()/30) + 3][(int)fallingBlock.getY()/30] = true;
+		ArrayList<Square> squares = fallingBlock.getSquares();
+		for (int i = 0; i < squares.size(); i++) {
+			grid[(int)(squares.get(i).getX()/30)][(int)(squares.get(i).getY()/30)] = true;
 		}
-		fallingBlock.stopFall();
-		placedBlocks.add(fallingBlock);
 	}
 	
-	public int detectRow() {
-		int result = -1;
-		for (int i = 0; i < grid.length; i++) {
-			for (int j = 0; j < grid[0].length; j++) {
-				if (!grid[j][i]) {
-					j = grid[0].length;
-					result = -1;
-				} else {
-					result = i;
-				}
-			}
-		}
-		return result;
-	}
 }
