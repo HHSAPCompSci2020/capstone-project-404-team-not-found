@@ -45,6 +45,8 @@ public class Square {
 			lines.get(i).move(x, y);
 			//System.out.println("line: " + i);
 		}
+		this.x += x;
+		this.y += y;
 	}
 	
 	public boolean isTouching(Square block) {
