@@ -84,6 +84,15 @@ public class Line {
 		return y2;
 	}
 	
+	public boolean equals(Line l) {
+		if (getX() == l.getX() && getY() == l.getY() && getX2() == l.getX2() && getY2() == l.getY2()) {
+			return true;
+		} else if (getX() == l.getX2() && getY() == l.getY2() && getX2() == l.getX() && getY2() == l.getY()) {
+			return true;
+		}
+		return false;
+	}
+	
 	private boolean checkIfInBtwn(double x, double a, double b) {
 		boolean result = false;
 		if (x >= Math.min(a, b) && x <= Math.max(a, b)) {
@@ -120,4 +129,7 @@ public class Line {
 		return result;
 	}
 	
+	public String toString() {
+		return "(" + getX() + "," + getY() + ") (" + getX2() + "," + getY2() + ")";
+	}
 }

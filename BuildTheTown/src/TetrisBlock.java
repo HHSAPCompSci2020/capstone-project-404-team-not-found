@@ -75,9 +75,7 @@ public abstract class TetrisBlock {
 	public void fall() {
 		for (int i = 0; i < squares.size(); i++) {
 			Square square = squares.get(i);
-			//System.out.println("square: " + i);
 			square.move(0, velocity);
-			//System.out.println(squares.get(i).getY());
 		}
 		
 	}
@@ -114,10 +112,10 @@ public abstract class TetrisBlock {
 			}
 		}
 		for (int i = 0; i < lines.size(); i++) {
-			for (int j = i; j < lines.size(); j++) {
+			for (int j = i + 1; j < lines.size(); j++) {
 				if (lines.get(i).equals(lines.get(j))) {
-					lines.remove(i);
 					lines.remove(j);
+					lines.remove(i);
 				}
 			}
 		}
@@ -131,11 +129,13 @@ public abstract class TetrisBlock {
 				lines.add(squares.get(i).getVerticalLines()[j]);
 			}
 		}
+		//System.out.println(lines);
 		for (int i = 0; i < lines.size(); i++) {
-			for (int j = i; j < lines.size(); j++) {
+			for (int j = i + 1; j < lines.size(); j++) {
 				if (lines.get(i).equals(lines.get(j))) {
-					lines.remove(i);
+					//System.out.println("i: " + i + "j: " + j);
 					lines.remove(j);
+					lines.remove(i);
 				}
 			}
 		}

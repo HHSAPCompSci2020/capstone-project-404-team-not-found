@@ -40,10 +40,8 @@ public class Square {
 //	}
 	
 	public void move(double x, double y) {
-		System.out.println("Y: " + getY());
 		for (int i = 0; i < lines.size(); i++) {
 			lines.get(i).move(x, y);
-			//System.out.println("line: " + i);
 		}
 		this.x += x;
 		this.y += y;
@@ -52,7 +50,6 @@ public class Square {
 	public boolean isTouching(Square block) {
 		for (int i = 0; i < lines.size(); i++) {
 			for (int j = 0; j < block.getLines().size(); j++) {
-				//System.out.println("i: " + i + "j: " + j);
 				if (lines.get(i).overlaps(block.getLines().get(j))) {
 					return true;
 				}
