@@ -35,14 +35,14 @@ public class BuildingBlock {
 	 */
 	public void act(ArrayList<BuildingBlock> blocks, double floorYCoord) {
 		yVelocity += GRAVITY;
-		if(y + WIDTH > floorYCoord)// if this block has crossed the bottom
-			yVelocity = 0;//          border of the window, stop falling
+		if(y + WIDTH > floorYCoord) {// if this block has crossed
+			yVelocity = 0;//            the floor, stop falling
+			y--;
+		}
 		
 		for(int i = 0; i < blocks.size(); i++) {// if this block is touching any other block, stop
-			if(isTouching(blocks.get(i)) && !blocks.get(i).equals(this)) {//               falling
+			if(isTouching(blocks.get(i)) && !blocks.get(i).equals(this))  //               falling
 				yVelocity = 0;
-				y--;
-			}
 		}
 		
 		y += yVelocity;
