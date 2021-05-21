@@ -13,11 +13,19 @@ public class Tetris {
 		resetFallingBlock(marker.width);
 	}
 	
-	
-	public void act() {
+	/**
+	 * places falling block whenever it touches the bottom or falls on top of a block
+	 * drops another random block once the previous block was placed
+	 * detects when rows are filled, adds points, deletes them from the screen and rearranges the rows above to fall down
+	 */
+	public void act(PApplet drawer) {
 		detectRow();
 	}
 	
+	/**
+	 * draws the placed tetrisBlocks and the falling block
+	 * @param marker
+	 */
 	public void draw(PApplet marker) {
 		for (int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid[0].length; j++) {
@@ -26,8 +34,14 @@ public class Tetris {
 				}
 			}
 		}
+		fallingBlock.draw(marker);
+		fallingBlock.fall();
 	}
 	
+	/**
+	 * creates a new random tetris block and drops it from a random x at the top of the screen
+	 * @param windowWidth width of the window
+	 */
 	public void resetFallingBlock(int windowWidth) {
 		int type = (int)(Math.random()*2);
 		switch (type) {
@@ -42,6 +56,9 @@ public class Tetris {
 		}
 	}
 	
+	/**
+	 * adds the falling block to the array of placed blocks in this tetris game
+	 */
 	public void placeBlock() {
 		ArrayList<Square> squares = fallingBlock.getSquares();
 		for (int i = 0; i < squares.size(); i++) {
@@ -49,6 +66,9 @@ public class Tetris {
 		}
 	}
 	
+	/**
+	 * detects when a row of placed blocks is full, updates points, and deletes it
+	 */
 	public void detectRow() {
 		boolean isFull = true;
 		for (int i = 0; i < grid.length; i++) {
@@ -66,6 +86,10 @@ public class Tetris {
 		}
 	}
 	
+	/**
+	 * deletes the row of placed blocks, moves the rows above down 1 so that everything falls black into place
+	 * @param r row to be deleted
+	 */
 	public void deleteRow(int r) {
 		for (int i = r; i >= 0; i++) {
 			for (int j = 0; j < grid[0].length; j++) {
@@ -76,5 +100,14 @@ public class Tetris {
 				}
 			}
 		}
+	}
+	/**
+	 * determines when this tetris game is over 
+	 * the game is over when at least one of the placed blocks touches the top of the window
+	 * @param top the top Line of the window
+	 * @return false if there are no blocks touching the top of the window, true if there are 
+	 */
+	public boolean isGameOver(Line top) {
+		return false;
 	}
 }
