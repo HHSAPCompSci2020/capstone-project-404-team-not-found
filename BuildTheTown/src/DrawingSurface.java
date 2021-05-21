@@ -11,7 +11,7 @@ public class DrawingSurface extends PApplet{
 	Dimension r = Toolkit.getDefaultToolkit().getScreenSize();
 	private boolean fall;
 	public DrawingSurface() {
-		town = new Town(3, width);
+		town = new Town(r.getWidth());
 		fall = true;
 	}
 	
