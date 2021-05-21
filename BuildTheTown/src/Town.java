@@ -34,7 +34,7 @@ public class Town {
 	 * @param windowWidth The width of the window
 	 */
 	public void draw(PApplet marker, double windowWidth) {
-		if(started = true) {
+		if(started) {
 			for(int i = 0; i < blocks.size(); i++) {
 				blocks.get(i).draw(marker);
 			}
@@ -46,7 +46,7 @@ public class Town {
 	 * Moves the blocks in the Town with physics
 	 */
 	public void act() {
-		if(started = true) {
+		if(started) {
 			for(int i = 0; i < blocks.size(); i++) {
 				blocks.get(i).act(blocks, floorYCoord);
 			}
@@ -59,7 +59,7 @@ public class Town {
 	 * @param pY The y-coordinate of the point that has been clicked
 	 */
 	public void placeBlock(double pX, double pY) {
-		if(started = true) {
+		if(started) {
 			if(blockCount > 0) {
 				blocks.add(new BuildingBlock(pX - 25, pY - 25)); // block width is 50
 				blockCount--;
@@ -73,7 +73,7 @@ public class Town {
 	 * @param pY the y-coordinate of the point that has been clicked
 	 */
 	public void deleteBlock(double pX, double pY) {
-		if(started = true) {
+		if(started) {
 			for(int i = 0; i < blocks.size(); i++) {
 				if(blocks.get(i).isPointInRect(pX, pY))
 					blocks.remove(i);
