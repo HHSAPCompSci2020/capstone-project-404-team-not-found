@@ -1,16 +1,23 @@
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 
 import processing.core.PApplet;
 
 public class Tetris {
 	private TetrisBlock fallingBlock;
-	private Square[][] grid; 
+	private Square[][] grid;
+	Dimension r = Toolkit.getDefaultToolkit().getScreenSize();
 	private int points;
 	
 	
 	public Tetris(PApplet marker) {
-		grid = new Square[(int)(marker.width/30)][(marker.height/30)];
+//		System.out.println("width: " + (marker.width));
+//		System.out.println("height: " + (marker.height));
+		grid = new Square[(int)(r.getWidth()/30)][(int)(r.getHeight()/30)];
+		//grid = new Square[30][30];
 		resetFallingBlock(marker.width);
+		System.out.println(fallingBlock);
 	}
 	
 	/**
@@ -20,6 +27,18 @@ public class Tetris {
 	 */
 	public void act(PApplet drawer) {
 		detectRow();
+		Line bottom = new Line(0, drawer.height-2, drawer.width, drawer.height-2);
+		for (int i = 0; i < grid.length; i++) {
+			for (int j = 0; j < grid[0].length; j++) {
+				if (fallingBlock.isTouchingHorizontal(grid[i][j]) || fallingBlock.isTouchingHorizontal(bottom)) {
+					fallingBlock.stopFall();
+					placeBlock();
+					j = grid[0].length;
+					i = grid.length;
+					resetFallingBlock(drawer.width);
+				}
+			}
+		}
 	}
 	
 	/**
@@ -43,7 +62,8 @@ public class Tetris {
 	 * @param windowWidth width of the window
 	 */
 	public void resetFallingBlock(int windowWidth) {
-		int type = (int)(Math.random()*2);
+		int type = (int)(Math.random()*2) + 1;
+		System.out.println(type);
 		switch (type) {
 			case 1: 
 				int n = (int)(Math.random()*windowWidth/30);
@@ -61,6 +81,8 @@ public class Tetris {
 	 */
 	public void placeBlock() {
 		ArrayList<Square> squares = fallingBlock.getSquares();
+		//System.out.println(grid.length);
+		//System.out.println(grid[0].length);
 		for (int i = 0; i < squares.size(); i++) {
 			grid[(int)(squares.get(i).getX()/30)][(int)(squares.get(i).getY()/30)] = squares.get(i);
 		}
@@ -84,6 +106,10 @@ public class Tetris {
 				deleteRow(i);
 			}
 		}
+	}
+	
+	public TetrisBlock getFallingBlock() {
+		return fallingBlock;
 	}
 	
 	/**

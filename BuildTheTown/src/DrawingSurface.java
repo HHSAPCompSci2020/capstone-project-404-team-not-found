@@ -11,7 +11,6 @@ public class DrawingSurface extends PApplet{
 	Dimension r = Toolkit.getDefaultToolkit().getScreenSize();
 	private boolean fall;
 	public DrawingSurface() {
-		tetris = new Tetris(this);
 		town = new Town(3, width);
 		fall = true;
 	}
@@ -20,6 +19,8 @@ public class DrawingSurface extends PApplet{
 	public void setup() {
 		tetrisBlock = new SquareBlock(90, 300);
 		block2 = new RectangleBlock(90, 0);
+		tetris = new Tetris(this);
+		
 	}
 	
 	/**
@@ -27,32 +28,35 @@ public class DrawingSurface extends PApplet{
 	 */
 	public void draw() {
 		background(255);
-		tetrisBlock.draw(this);
-		tetrisBlock.fall();
-		block2.draw(this);
-		block2.fall();
-		Line bottom = new Line(0, height-2, width, height-2);
-		//System.out.println(height);
-		if (tetrisBlock.isTouchingHorizontal(bottom)) {
-			//System.out.println("touched bottom");
-			tetrisBlock.stopFall();
-		}
-		if (block2.isTouchingHorizontal(bottom)) {
-			//System.out.println("touched bottom");
-			block2.stopFall();
-		}
-		//System.out.println(tetrisBlock.getVerticalLines());
-//		Line l1 = new Line(30, 30, 30, 0);
-//		Line l2 = new Line(30, 0, 30, 30);
-//		if (l1.equals(l2)) {
-//			System.out.println("true");
-//		} else {
-//			System.out.println("false");
+		tetris.draw(this);
+		tetris.act(this);
+		//tetris.act(this);
+//		tetrisBlock.draw(this);
+//		tetrisBlock.fall();
+//		block2.draw(this);
+//		block2.fall();
+//		Line bottom = new Line(0, height-2, width, height-2);
+//		//System.out.println(height);
+//		if (tetrisBlock.isTouchingHorizontal(bottom)) {
+//			//System.out.println("touched bottom");
+//			tetrisBlock.stopFall();
 //		}
-		if(block2.isTouchingHorizontal(tetrisBlock)) {
-			block2.stopFall();
-			System.out.println("touched other block");
-		}
+//		if (block2.isTouchingHorizontal(bottom)) {
+//			//System.out.println("touched bottom");
+//			block2.stopFall();
+//		}
+//		//System.out.println(tetrisBlock.getVerticalLines());
+////		Line l1 = new Line(30, 30, 30, 0);
+////		Line l2 = new Line(30, 0, 30, 30);
+////		if (l1.equals(l2)) {
+////			System.out.println("true");
+////		} else {
+////			System.out.println("false");
+////		}
+//		if(block2.isTouchingHorizontal(tetrisBlock)) {
+//			block2.stopFall();
+//			System.out.println("touched other block");
+//		}
 //		SquareBlock block = new SquareBlock(100, 100);
 //		block.draw(this);
 //		block.rotate();
@@ -95,13 +99,13 @@ public class DrawingSurface extends PApplet{
 	
 	public void keyPressed() {
 		 if (key == 'r' || key == 'R') {
-			 tetrisBlock.rotate();
+			 tetris.getFallingBlock().rotate();
 		 }
 		 if (keyCode == RIGHT) {
-			 block2.move(true);
+			 tetris.getFallingBlock().move(true);
 		 }
 		 if (keyCode == LEFT) {
-			 block2.move(false);
+			 tetris.getFallingBlock().move(false);
 		 }
 	}
 	

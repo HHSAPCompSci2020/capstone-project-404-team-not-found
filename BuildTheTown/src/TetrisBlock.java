@@ -168,6 +168,34 @@ public abstract class TetrisBlock {
 		return false;
 	}
 	
+	public boolean isTouchingHorizontal(Square square) {
+		if (square == null) {
+			return false;
+		}
+		ArrayList<Line> lines = this.getHorizontalLines();
+		Line[] otherLines = square.getHorizontalLines();
+		for (int i = 0; i < lines.size(); i++) {
+			for (int j = 0; j < otherLines.length; j++) {
+				if (lines.get(i).overlaps(otherLines[j])) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
+	public boolean isTouchingVertical(Square square) {
+		ArrayList<Line> lines = this.getVerticalLines();
+		Line[] otherLines = square.getVerticalLines();
+		for (int i = 0; i < lines.size(); i++) {
+			for (int j = 0; j < otherLines.length; j++) {
+				if (lines.get(i).overlaps(otherLines[j])) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 	
 	public boolean isTouchingHorizontal(Line line) {
 		ArrayList<Line> lines = this.getHorizontalLines();
