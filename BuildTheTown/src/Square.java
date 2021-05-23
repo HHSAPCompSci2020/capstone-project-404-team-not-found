@@ -20,12 +20,6 @@ public class Square {
 		for (int i = 0; i < lines.size(); i++) {
 			lines.get(i).rotate();
 		}
-		double centerX = x+15;
-		double centerY = x+15;
-		double tempX = x-centerX;
-		double tempY = y-centerY;
-		x = tempY+centerX;
-		y = centerY-tempX;
 	}
 
 	
@@ -86,37 +80,17 @@ public class Square {
 	}
 	
 	public Line[] getHorizontalLines() {
-		Line[] horiLines = new Line[2];
-		int index = 0; 
-		for (int i = 0; i < lines.size(); i++) {
-			if (lines.get(i).isHorizontal() && index == 0) {
-				horiLines[0] = lines.get(i);
-				index++;
-			} else if (lines.get(i).isHorizontal() && index == 1) {
-				horiLines[1] = lines.get(i);
-				i = lines.size();
-			}
-		}
-//		lines[0] = this.lines.get(0);
-//		lines[1] = this.lines.get(2);
-		return horiLines;
+		Line[] lines = new Line[2];
+		lines[0] = this.lines.get(0);
+		lines[1] = this.lines.get(2);
+		return lines;
 	}
 	
 	public Line[] getVerticalLines() {
-		Line[] vertiLines = new Line[2];
-		int index = 0; 
-		for (int i = 0; i < lines.size(); i++) {
-			if (lines.get(i).isVertical() && index == 0) {
-				vertiLines[0] = lines.get(i);
-				index++;
-			} else if (lines.get(i).isVertical() && index == 1) {
-				vertiLines[1] = lines.get(i);
-				i = lines.size();
-			}
-		}
-//		lines[0] = this.lines.get(1);
-//		lines[1] = this.lines.get(3);
-		return vertiLines;
+		Line[] lines = new Line[2];
+		lines[0] = this.lines.get(1);
+		lines[1] = this.lines.get(3);
+		return lines;
 	}
 	public ArrayList<Line> getLines() {
 		return lines;

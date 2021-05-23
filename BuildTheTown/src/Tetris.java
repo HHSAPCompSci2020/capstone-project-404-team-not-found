@@ -92,6 +92,7 @@ public class Tetris {
 	 * detects when a row of placed blocks is full, updates points, and deletes it
 	 */
 	public void detectRow() {
+		//System.out.println("searching for a row");
 		boolean isFull = true;
 		for (int i = 0; i < grid.length; i++) {
 			isFull = true;
@@ -121,6 +122,7 @@ public class Tetris {
 	 * @param r row to be deleted
 	 */
 	public void deleteRow(int r) {
+		System.out.println("detected a row to be deleted");
 		for (int i = r; i >= 0; i++) {
 			for (int j = 0; j < grid[0].length; j++) {
 				if (i == 0) {
