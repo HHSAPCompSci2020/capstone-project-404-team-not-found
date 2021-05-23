@@ -13,6 +13,7 @@ public class DrawingSurface extends PApplet{
 	TetrisBlock block2;
 	private ArrayList<TetrisBlock> placedBlocks;
 //	Dimension r = Toolkit.getDefaultToolkit().getScreenSize();
+	Dimension r = Toolkit.getDefaultToolkit().getScreenSize();
 	private boolean fall;
 	
 	
@@ -70,6 +71,42 @@ public class DrawingSurface extends PApplet{
 //			block2.stopFall();
 //			System.out.println("touched other block");
 //		}
+//		tetris.draw(this);
+//		tetrisBlock.fall();
+//		tetris.act(this);
+//		this.color(0);
+//		Line top = new Line(20, 0, width, 20);
+//		if (tetris.isGameOver(top)) {
+//			background(255);
+//		}
+		
+		
+		
+		
+		
+		
+		tetrisBlock.draw(this);
+		tetrisBlock.fall();
+//		block2.draw(this);
+//		block2.fall();
+		Line bottom = new Line(0, height-2, width, height-2);
+		if (tetrisBlock.isTouchingHorizontal(bottom)) {
+			//System.out.println("touched bottom");
+			tetrisBlock.stopFall();
+			placedBlocks.add(tetrisBlock);
+		}
+//		if (block2.isTouchingHorizontal(bottom)) {
+//			//System.out.println("touched bottom");
+//			block2.stopFall();
+//		}
+
+//		if(block2.isTouchingHorizontal(tetrisBlock)) {
+//			block2.stopFall();
+//			System.out.println("touched other block");
+//		}
+		if (!(tetris.isGameOver(bottom))) {
+			background(100);
+		}
 
 		
 	}

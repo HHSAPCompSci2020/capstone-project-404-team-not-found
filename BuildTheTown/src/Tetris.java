@@ -133,7 +133,7 @@ public class Tetris {
 	 * @param top the top Line of the window
 	 * @return false if there are no blocks touching the top of the window, true if there are 
 	 */
-	public boolean isGameOver(Line top) {
+	public boolean isGameOver(Line top) { 
 		return false;
 	}
 }

@@ -1,1 +1,11 @@
-*.class
+/BuildingBlock.class
+/DrawingSurface.class
+/Line.class
+/Main.class
+/Menu.class
+/Tetris.class
+/TetrisBlock.class
+/Town.class
+/RectangleBlock.class
+/Square.class
+/SquareBlock.class
