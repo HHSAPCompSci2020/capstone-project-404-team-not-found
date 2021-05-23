@@ -10,12 +10,10 @@ public class Town {
 	
 	private ArrayList<BuildingBlock> blocks;
 	private int blockCount;
-	private double floorYCoord;
 	private boolean started;
 	
-	public Town(double windowHeight) {
+	public Town() {
 		blocks = new ArrayList<BuildingBlock>();
-		floorYCoord = 9 * windowHeight/10;
 		started = false;
 	}
 	
@@ -33,22 +31,22 @@ public class Town {
 	 * @param marker The PApplet with which to draw the blocks
 	 * @param windowWidth The width of the window
 	 */
-	public void draw(PApplet marker, double windowWidth) {
+	public void draw(PApplet marker) {
 		if(started) {
 			for(int i = 0; i < blocks.size(); i++) {
 				blocks.get(i).draw(marker);
 			}
-			marker.line((float)(0), (float)(floorYCoord), (float)(windowWidth), (float)(floorYCoord));
+			marker.line((float)(0), (float)(9 * marker.height/10), (float)(marker.width), (float)(9 * marker.height/10));
 		}
 	}
 	
 	/**
 	 * Moves the blocks in the Town with physics
 	 */
-	public void act() {
+	public void act(PApplet marker) {
 		if(started) {
 			for(int i = 0; i < blocks.size(); i++) {
-				blocks.get(i).act(blocks, floorYCoord);
+				blocks.get(i).act(blocks, 9 * marker.height/10);
 			}
 		}
 	}
