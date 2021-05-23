@@ -1,8 +1,5 @@
-import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
-import java.util.ArrayList;
-
 import processing.core.PApplet; 
 
 public class DrawingSurface extends PApplet{
@@ -11,24 +8,22 @@ public class DrawingSurface extends PApplet{
 	private Town town;
 	TetrisBlock tetrisBlock;
 	TetrisBlock block2;
-	private ArrayList<TetrisBlock> placedBlocks;
-//	Dimension r = Toolkit.getDefaultToolkit().getScreenSize();
 	Dimension r = Toolkit.getDefaultToolkit().getScreenSize();
 	private boolean fall;
-	
-	
 	public DrawingSurface() {
-		tetris = new Tetris(this);
-		town = new Town(width);
+		town = new Town(r.getWidth());
 		fall = true;
-		placedBlocks = new ArrayList<TetrisBlock>();
 	}
 	
+	public void settings() {
+		size(800, 600);
+	}
 	
 	public void setup() {
+		tetrisBlock = new SquareBlock(90, 300);
+		block2 = new RectangleBlock(90, 0);
+		tetris = new Tetris(this);
 		
-		tetrisBlock = new SquareBlock(90, 0);
-//		block2 = new RectangleBlock(90, 0);
 	}
 	
 	/**
@@ -36,90 +31,29 @@ public class DrawingSurface extends PApplet{
 	 */
 	public void draw() {
 		background(255);
-		
 		tetris.draw(this);
-		tetrisBlock.fall();
 		tetris.act(this);
-		this.color(0);
-		Line top = new Line(20, 0, width, 20);
-		if (tetris.isGameOver(top)) {
-			background(255);
-			
-		}
-		
-		
-		
-		
-		
-		
-//		tetrisBlock.draw(this);
-//		tetrisBlock.fall();
-////		block2.draw(this);
-////		block2.fall();
-//		Line bottom = new Line(0, height-2, width, height-2);
-//		if (tetrisBlock.isTouchingHorizontal(bottom)) {
-//			//System.out.println("touched bottom");
-//			tetrisBlock.stopFall();
-//			placedBlocks.add(tetrisBlock);
-//		}
-//		if (block2.isTouchingHorizontal(bottom)) {
-//			//System.out.println("touched bottom");
-//			block2.stopFall();
-//		}
-
-//		if(block2.isTouchingHorizontal(tetrisBlock)) {
-//			block2.stopFall();
-//			System.out.println("touched other block");
-//		}
-//		tetris.draw(this);
-//		tetrisBlock.fall();
-//		tetris.act(this);
-//		this.color(0);
-//		Line top = new Line(20, 0, width, 20);
-//		if (tetris.isGameOver(top)) {
-//			background(255);
-//		}
-		
-		
-		
-		
-		
-		
-		tetrisBlock.draw(this);
-		tetrisBlock.fall();
-//		block2.draw(this);
-//		block2.fall();
-		Line bottom = new Line(0, height-2, width, height-2);
-		if (tetrisBlock.isTouchingHorizontal(bottom)) {
-			//System.out.println("touched bottom");
-			tetrisBlock.stopFall();
-			placedBlocks.add(tetrisBlock);
-		}
-//		if (block2.isTouchingHorizontal(bottom)) {
-//			//System.out.println("touched bottom");
-//			block2.stopFall();
-//		}
-
-//		if(block2.isTouchingHorizontal(tetrisBlock)) {
-//			block2.stopFall();
-//			System.out.println("touched other block");
-//		}
-		if (!(tetris.isGameOver(bottom))) {
-			background(100);
-		}
-
-		
 	}
 	
 	public void keyPressed() {
 		 if (key == 'r' || key == 'R') {
-			 tetrisBlock.rotate();
+			 tetris.getFallingBlock().rotate();
 		 }
 		 if (keyCode == RIGHT) {
-			 block2.move(true);
+			 Line right = new Line(780, 0, 780, 561);
+			 //System.out.println(width);
+			 //System.out.println(height);
+			 if (!tetris.getFallingBlock().isTouchingVertical(right)) {
+				 tetris.getFallingBlock().move(true);
+			 }
+			 
 		 }
 		 if (keyCode == LEFT) {
-			 block2.move(false);
+			 Line left = new Line(0, 0, 0, height);
+			 if (!tetris.getFallingBlock().isTouchingVertical(left)) {
+				 tetris.getFallingBlock().move(false);
+			 }
+			 
 		 }
 	}
 	
