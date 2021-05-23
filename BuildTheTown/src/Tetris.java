@@ -112,6 +112,10 @@ public class Tetris {
 		return fallingBlock;
 	}
 	
+	public int getNumFallenBlocks() {
+		return points;
+	}
+	
 	/**
 	 * deletes the row of placed blocks, moves the rows above down 1 so that everything falls black into place
 	 * @param r row to be deleted
@@ -136,7 +140,7 @@ public class Tetris {
 	public boolean isGameOver(Line top) { 
 		for (int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid[0].length; j++) {
-				if (grid[i][j].isTouching(top)) {
+				if (grid[i][j] != null && grid[i][j].isTouching(top)) {
 					return true;
 				}
 			}
