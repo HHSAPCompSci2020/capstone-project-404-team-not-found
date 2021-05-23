@@ -14,7 +14,11 @@ public class Tetris {
 	public Tetris(PApplet marker) {
 //		System.out.println("width: " + (marker.width));
 //		System.out.println("height: " + (marker.height));
-		grid = new Square[(int)(r.getWidth()/30)][(int)(r.getHeight()/30)];
+		//grid = new Square[(int)(r.getWidth()/30)][(int)(r.getHeight()/30)];
+		grid = new Square[(int)(marker.height/15)][(int)(marker.width/15)];
+		System.out.println("width: " + marker.width);
+		System.out.println("height: " + marker.height);
+		
 		//grid = new Square[30][30];
 		resetFallingBlock(marker.width);
 		System.out.println(fallingBlock);
@@ -39,6 +43,7 @@ public class Tetris {
 				}
 			}
 		}
+		
 	}
 	
 	/**
@@ -84,7 +89,8 @@ public class Tetris {
 		//System.out.println(grid.length);
 		//System.out.println(grid[0].length);
 		for (int i = 0; i < squares.size(); i++) {
-			grid[(int)(squares.get(i).getX()/30)][(int)(squares.get(i).getY()/30)] = squares.get(i);
+			grid[(int)(squares.get(i).getY()/30)][(int)(squares.get(i).getX()/30)] = squares.get(i);
+			//grid[(int)(squares.get(i).getY()/30)][(int)(squares.get(i).getX()/30)] = squares.get(i);
 		}
 	}
 	
@@ -93,17 +99,25 @@ public class Tetris {
 	 */
 	public void detectRow() {
 		//System.out.println("searching for a row");
+//		System.out.println("height: " + grid.length);
+//		System.out.println("width: " + grid[0].length);
 		boolean isFull = true;
 		for (int i = 0; i < grid.length; i++) {
 			isFull = true;
 			for (int j = 0; j < grid[0].length; j++) {
 				if (grid[i][j] == null) {
 					isFull = false;
-					j = grid[0].length;
-				} 
+					//System.out.println("block at " + i + "," + j+ "is not full"); 
+					//j = grid[0].length;
+					break;
+				} else {
+					//System.out.println("block at " + i + "," + j + " is not null");
+				}
 			}
+			//System.out.println(i + " " + isFull);
 			if (isFull) {
 				points+=50;
+				System.out.println("points: " + points);
 				deleteRow(i);
 			}
 		}
@@ -119,12 +133,15 @@ public class Tetris {
 	 */
 	public void deleteRow(int r) {
 		System.out.println("detected a row to be deleted");
-		for (int i = r; i >= 0; i++) {
+		for (int i = r; i >= 0; i--) {
 			for (int j = 0; j < grid[0].length; j++) {
 				if (i == 0) {
 					grid[i][j] = null;
 				} else {
 					grid[i][j] = grid[i-1][j];
+					if (grid[i][j] != null) {
+						grid[i][j].move(0, 30);
+					}
 				}
 			}
 		}
@@ -136,6 +153,13 @@ public class Tetris {
 	 * @return false if there are no blocks touching the top of the window, true if there are 
 	 */
 	public boolean isGameOver(Line top) {
+		for (int i = 0; i < grid.length; i++) {
+			for (int j = 0; j < grid[0].length; j++) {
+				if (grid[i][j].isTouching(top)) {
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 }
