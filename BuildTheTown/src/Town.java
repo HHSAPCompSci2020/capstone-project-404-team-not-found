@@ -59,7 +59,7 @@ public class Town {
 	public void placeBlock(double pX, double pY) {
 		if(started) {
 			if(blockCount > 0) {
-				blocks.add(new BuildingBlock(pX - 25, pY - 25)); // block width is 50
+				blocks.add(new BuildingBlock(pX - 15, pY - 15)); // block width is 30
 				blockCount--;
 			}
 		}

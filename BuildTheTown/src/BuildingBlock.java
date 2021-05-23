@@ -16,7 +16,7 @@ public class BuildingBlock {
 	public BuildingBlock(double x, double y) {
 		this.x = x;
 		this.y = y;
-		WIDTH = 50;
+		WIDTH = 30;
 		GRAVITY = 0.1;
 		yVelocity = 0;
 	}
