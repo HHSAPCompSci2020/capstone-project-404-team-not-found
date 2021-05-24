@@ -44,17 +44,34 @@ public class Line {
 	 * rotates this line 90 degrees clockwise
 	 */
 	public void rotate() {
-		double centerX = (x2-x)/2;
-		double centerY = (y2-y)/2;
-		double tempX = x-centerX;
-		double tempX2 = x2-centerX;
-		double tempY = y-centerY;
-		double tempY2 = y2-centerY;
-		x = tempY+centerX;
-		y = centerY-tempX;
-		x2 = tempY2+centerX;
-		y2 = centerY-tempX2;
+//		double centerX = (x2+x)/2;
+//		double centerY = (y2+y)/2;
+//		double tempX = x-centerX;
+//		double tempX2 = x2-centerX;
+//		double tempY = y-centerY;
+//		double tempY2 = y2-centerY;
+//		x = centerX-tempY;
+//		y = centerY-tempX;
+//		x2 = centerX-tempY2;
+//		y2 = centerY-tempX2;
+		double tempX = x;
+		double tempX2 = x2;
+		x = y;
+		y = tempX;
+		x2 = y;
+		y2 = tempX2;
 	}
+	
+//	public void rotate(double rotateX, double rotateY) {
+//		double tempX = x-rotateX;
+//		double tempX2 = x2-rotateX;
+//		double tempY = y-rotateY;
+//		double tempY2 = y2-rotateY;
+//		x = rotateX-tempY;
+//		y = rotateY-tempX;
+//		x2 = rotateX-tempY2;
+//		y2 = rotateY-tempX2;
+//	}
 	
 	public boolean isHorizontal() {
 		if (y == y2) {

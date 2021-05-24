@@ -19,16 +19,23 @@ public class RectangleBlock extends TetrisBlock {
 	@Override
 	public void rotate() {
 		// TODO Auto-generated method stub
+//		double centerX = x+45;
+//		double centerY = y+15;
 		for (int i = 0; i < squares.size(); i++) {
+//			squares.get(i).rotate(centerX, centerY);
 			squares.get(i).rotate();
 		}
-		System.out.println("rotated");   
-		double centerX = x+45;
-		double centerY = y+15;
-		double tempX = x-centerX;
-		double tempY = y-centerY;
-		x = tempY+centerX;
-		y = centerY-tempX;
+//		System.out.println("rotated");   
+//		
+//		double tempX = x-centerX;
+//		double tempY = y-centerY;
+//		x = centerX-tempY;
+//		y = centerY-tempX;
+		
+		double tempX = x;
+		x = y;
+		y = tempX;
+		
 	}
 
 

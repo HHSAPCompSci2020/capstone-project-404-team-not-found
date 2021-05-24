@@ -20,13 +20,27 @@ public class Square {
 		for (int i = 0; i < lines.size(); i++) {
 			lines.get(i).rotate();
 		}
-		double centerX = x+15;
-		double centerY = x+15;
-		double tempX = x-centerX;
-		double tempY = y-centerY;
-		x = tempY+centerX;
-		y = centerY-tempX;
+//		double centerX = x+15;
+//		double centerY = x+15;
+//		double tempX = x-centerX;       
+//		double tempY = y-centerY;
+//		x = centerX-tempY;
+//		y = centerY-tempX;
+		
+		double tempX = x;
+		x = y;
+		y = tempX;
 	}
+	
+//	public void rotate(double rotateX, double rotateY) {
+//		for (int i = 0; i < lines.size(); i++) {
+//			lines.get(i).rotate(rotateX, rotateY);
+//		}
+//		double tempX = x-rotateX;       
+//		double tempY = y-rotateY;
+//		x = rotateX-tempY;
+//		y = rotateY-tempX;
+//	}
 
 	
 	public void draw(PApplet marker) {

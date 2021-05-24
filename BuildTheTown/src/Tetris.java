@@ -14,7 +14,9 @@ public class Tetris {
 	public Tetris(PApplet marker) {
 //		System.out.println("width: " + (marker.width));
 //		System.out.println("height: " + (marker.height));
-		grid = new Square[(int)(r.getWidth()/30)][(int)(r.getHeight()/30)];
+		grid = new Square[(int)(marker.height/30)][(int)(marker.width/30)];
+		System.out.println("width: " + grid[0].length);
+		System.out.println("height: " + grid.length);
 		//grid = new Square[30][30];
 		resetFallingBlock(marker.width);
 		System.out.println(fallingBlock);
@@ -84,7 +86,7 @@ public class Tetris {
 		//System.out.println(grid.length);
 		//System.out.println(grid[0].length);
 		for (int i = 0; i < squares.size(); i++) {
-			grid[(int)(squares.get(i).getX()/30)][(int)(squares.get(i).getY()/30)] = squares.get(i);
+			grid[(int)(squares.get(i).getY()/30)][(int)(squares.get(i).getX()/30)] = squares.get(i);
 		}
 	}
 	
@@ -98,7 +100,7 @@ public class Tetris {
 			for (int j = 0; j < grid[0].length; j++) {
 				if (grid[i][j] == null) {
 					isFull = false;
-					j = grid[0].length;
+					break;
 				} 
 			}
 			if (isFull) {
@@ -121,12 +123,15 @@ public class Tetris {
 	 * @param r row to be deleted
 	 */
 	public void deleteRow(int r) {
-		for (int i = r; i >= 0; i++) {
+		for (int i = r; i >= 0; i--) {
 			for (int j = 0; j < grid[0].length; j++) {
 				if (i == 0) {
 					grid[i][j] = null;
 				} else {
 					grid[i][j] = grid[i-1][j];
+					if (grid[i][j] != null) {
+						grid[i][j].move(0, 30);
+					}
 				}
 			}
 		}

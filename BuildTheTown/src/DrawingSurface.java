@@ -14,9 +14,8 @@ public class DrawingSurface extends PApplet{
 	
 	public DrawingSurface() {
 		town = new Town();
-		tetris = new Tetris(this);
 		menu = new Menu();
-		top = new Line( 0, 70, r.getWidth(), 70);
+		top = new Line( 0, 70, width, 70);
 		townPlay = false;
 	}
 	
@@ -25,7 +24,7 @@ public class DrawingSurface extends PApplet{
 	}
 	
 	public void setup() {
-		
+		tetris = new Tetris(this);
 	}
 	
 	/**
