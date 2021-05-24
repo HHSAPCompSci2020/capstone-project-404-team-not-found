@@ -54,6 +54,19 @@ public class Line {
 		return false;
 	}
 	
+	public boolean isPartiallyOverlapping(Line other) {
+		double smallX = getSmallerLine(other).getX();
+		double smallY = getSmallerLine(other).getY();
+		double smallY2 = getSmallerLine(other).getY2();
+		double bigX = getBiggerLine(other).getX();
+		double bigY = getBiggerLine(other).getY();
+		double bigY2 = getBiggerLine(other).getY2();
+		
+		if(smallX == bigX && (checkIfInBtwn(smallY, bigY, bigY2) || checkIfInBtwn(smallY2, bigY, bigY2) || checkIfInBtwn(bigY, smallY, smallY2) || checkIfInBtwn(bigY2, smallY, smallY2))) {
+			return true;
+		}
+		return false;
+	}
 	/**
 	 * Moves this line by the specified horizontal and vertical translations 
 	 * 

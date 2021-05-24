@@ -133,6 +133,17 @@ public class Square {
 		return lines;
 	}
 	
+	public boolean isPartiallyOverlapping(Square block) {
+		for (int i = 0; i < lines.size(); i++) {
+			for (int j = 0; j < block.getLines().size(); j++) {
+				if (lines.get(i).isPartiallyOverlapping(block.getLines().get(j))) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
 	/**
 	 * 
 	 * @return the 4 lines that make up the sides of this square

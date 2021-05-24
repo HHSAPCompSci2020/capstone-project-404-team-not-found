@@ -231,6 +231,19 @@ public abstract class TetrisBlock {
 		return false;
 	}
 	
+	public boolean isPartiallyOverlapping(Square block) {
+		ArrayList<Line> lines = this.getVerticalLines();
+		Line[] otherLines = block.getVerticalLines();
+		for (int i = 0; i < lines.size(); i++) {
+			for (int j = 0; j < otherLines.length; j++) {
+				if (lines.get(i).isPartiallyOverlapping(otherLines[j])) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+	
 	/**
 	 * Stops this tetris block from falling (moving down vertically) 
 	 * Sets velocity to 0

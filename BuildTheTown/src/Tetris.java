@@ -159,6 +159,19 @@ public class Tetris {
 			}
 		} 
 	}
+	
+	public boolean isFallingBlockTouchingBlocks() {
+		boolean result = false;
+		for (int i = 0; i < grid.length; i++) {
+			for (int j = 0; j < grid[0].length; j++) {
+				if (grid[i][j] != null && fallingBlock.isPartiallyOverlapping(grid[i][j])) {
+					System.out.println(result);
+					result = true;
+				}
+			}
+		}
+		return result;
+	}
 	/**
 	 * determines when this tetris game is over 
 	 * the game is over when at least one of the placed blocks touches the top of the window
@@ -174,7 +187,6 @@ public class Tetris {
 				}
 			}
 		}
-		System.out.println(result);
 		return result;
 	}
 }

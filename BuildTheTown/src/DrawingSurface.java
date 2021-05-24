@@ -83,14 +83,14 @@ public class DrawingSurface extends PApplet{
 			 Line right = new Line(780, 0, 780, 561);
 			 //System.out.println(width);
 			 //System.out.println(height);
-			 if (!tetris.getFallingBlock().isTouchingVertical(right)) {
+			 if (!tetris.getFallingBlock().isTouchingVertical(right) && !tetris.isFallingBlockTouchingBlocks()) {
 				 tetris.getFallingBlock().move(true);
 			 }
 			 
 		 }
 		 if (keyCode == LEFT) {
 			 Line left = new Line(0, 0, 0, height);
-			 if (!tetris.getFallingBlock().isTouchingVertical(left)) {
+			 if (!tetris.getFallingBlock().isTouchingVertical(left) && !tetris.isFallingBlockTouchingBlocks()) {
 				 tetris.getFallingBlock().move(false);
 			 }
 			 
