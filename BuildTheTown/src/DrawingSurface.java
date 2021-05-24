@@ -4,6 +4,12 @@ import java.util.Random;
 
 import processing.core.PApplet; 
 
+/**
+ * 
+ * @author Anya Agrawal
+ *
+ */
+
 public class DrawingSurface extends PApplet{
 	
 	private Tetris tetris;
@@ -15,16 +21,17 @@ public class DrawingSurface extends PApplet{
 //	private Random random;
 //	private boolean townPlay;
 
-	
 	public DrawingSurface() {
 		top = new Line(0, 60, width, 60);
 //		random = new Random();
 //		townPlay = false;
 	}
 	
-	
+	/* 
+	 * Instantiates the menu, tetris and town classes. 
+	 */
 	public void setup() {
-		tetris = new Tetris(this);
+		tetris = new Tetris(this); 
 		town = new Town();
 		menu = new Menu();
 	}
@@ -34,7 +41,7 @@ public class DrawingSurface extends PApplet{
 	}
 	
 	/**
-	 * Draws all the Tetris and Town on to the window 
+	 * Draws Menu, Tetris, and the Town on to the window and shifts between each appropriately when the circumstances are fulfilled.  
 	 */
 	public void draw() {
 		background(255);
@@ -54,11 +61,17 @@ public class DrawingSurface extends PApplet{
 		
 	}
 	
+	/* 
+	 * Draws the menu onto the window. 
+	 */
 	private void runMenu() {
 		menu.draw(this);
 		
 	}
 	
+	/* 
+	 * Draws the Tetris game onto the window. 
+	 */
 	private void runTetris() {
 		this.line((float) 0, (float)60, (float)r.getWidth(), (float)60);
 //		int colorInt = random.nextInt(256);
@@ -69,16 +82,23 @@ public class DrawingSurface extends PApplet{
 		
 	}
 	
+	/* 
+	 * Draws the Town game onto the window. 
+	 */
 	private void runTown() {
 		town.start(tetris.getNumFallenBlocks());
 		town.draw(this);
 		town.act(this);
 	}
 	
+	
+	/* 
+	 * An active listener method that checks for what button on the keyboard is pushed and performs the corresponding action
+	 */
 	public void keyPressed() { 
-		 if (key == 'r' || key == 'R') {
-			 tetris.getFallingBlock().rotate();
-		 }
+//		 if (key == 'r' || key == 'R') {
+//			 tetris.getFallingBlock().rotate();
+//		 }
 		 if (keyCode == RIGHT) {
 			 Line right = new Line(780, 0, 780, 561);
 			 //System.out.println(width);
@@ -97,6 +117,10 @@ public class DrawingSurface extends PApplet{
 		 }
 	}
 	
+	
+	/* 
+	 * An active listener method that checks for what button on the mouse is clicked and performs the corresponding action
+	 */
 	public void mouseClicked() {
 		if (mouseButton == LEFT && !(town.getStarted())) {
 			menu.mouseClicked(this, mouseX, mouseY);
