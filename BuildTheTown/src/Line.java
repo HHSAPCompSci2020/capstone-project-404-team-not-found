@@ -43,6 +43,7 @@ public class Line {
 	/**
 	 * rotates this line 90 degrees clockwise
 	 */
+
 	public void rotate() {
 //	public void rotate() {
 //		double centerX = (x2+x)/2;
@@ -55,6 +56,7 @@ public class Line {
 //		y = centerY-tempX;
 //		x2 = centerX-tempY2;
 //		y2 = centerY-tempX2;
+
 		double tempX = x;
 		double tempX2 = x2;
 		x = y;
@@ -84,7 +86,7 @@ public class Line {
 //		y = rotateY-tempX;
 //		x2 = rotateX-tempY2;
 //		y2 = rotateY-tempX2;
-//	}
+
 	
 	public boolean isHorizontal() {
 		if (y == y2) {

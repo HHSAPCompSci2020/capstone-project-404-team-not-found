@@ -17,7 +17,6 @@ public class DrawingSurface extends PApplet{
 		menu = new Menu();
 		top = new Line( 0, 70, width, 70);
 		townPlay = false;
-
 	}
 	
 	public void settings() {

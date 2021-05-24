@@ -16,16 +16,22 @@ public class Square {
 		lines.add(new Line(x, y+30, x, y));
 	}
 	
-	public void rotate() {
-		for (int i = 0; i < lines.size(); i++) {
-			lines.get(i).rotate();
-		}
+//	public void rotate() {
+//		for (int i = 0; i < lines.size(); i++) {
+//			lines.get(i).rotate();
+//		}
 //		double centerX = x+15;
 //		double centerY = x+15;
 //		double tempX = x-centerX;       
 //		double tempY = y-centerY;
 //		x = centerX-tempY;
 //		y = centerY-tempX;
+//	}
+	
+	public void rotate() {
+		for (int i = 0; i < lines.size(); i++) {
+			lines.get(i).rotate();
+		}
 		double tempX = x;
 		x = y;
 		y = tempX;
