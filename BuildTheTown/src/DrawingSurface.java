@@ -7,7 +7,7 @@ public class DrawingSurface extends PApplet{
 	private Tetris tetris;
 	private Town town;
 	private Menu menu;
-	private boolean townPlay; 
+//	private boolean townPlay; 
 	Dimension r = Toolkit.getDefaultToolkit().getScreenSize();
 	private Line top;
 
@@ -17,7 +17,7 @@ public class DrawingSurface extends PApplet{
 		tetris = new Tetris(this);
 		menu = new Menu();
 		top = new Line( 0, 70, r.getWidth(), 70);
-		townPlay = false;
+//		townPlay = false;
 	}
 	
 	
@@ -38,7 +38,7 @@ public class DrawingSurface extends PApplet{
 			runTetris();
 		}
 		else { 
-			townPlay = true;
+//			townPlay = true;
 			runTown();
 		}
 		
@@ -86,13 +86,13 @@ public class DrawingSurface extends PApplet{
 	}
 	
 	public void mouseClicked() {
-		if (mouseButton == LEFT && !(townPlay)) {
+		if (mouseButton == LEFT && !(town.getStarted())) {
 			menu.mouseClicked(this, mouseX, mouseY);
 		}
-		if (mouseButton == LEFT && townPlay) {
+		if (mouseButton == LEFT && town.getStarted()) {
 			town.placeBlock(mouseX, mouseY);
 		}
-		if (mouseButton == RIGHT && townPlay) {
+		if (mouseButton == RIGHT && town.getStarted()) {
 			town.deleteBlock(mouseX, mouseY);
 		}
 	}
