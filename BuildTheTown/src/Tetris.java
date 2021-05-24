@@ -75,19 +75,19 @@ public class Tetris {
 		System.out.println(type);
 		switch (type) {
 			case 1: 
-				int n = (int)(Math.random()*windowWidth/30);
+				int n = (int)(Math.random()*(windowWidth-90)/30);
 				fallingBlock = new RectangleBlock(n*30, 0);
 				break;
 			case 2: 
-				n = (int)(Math.random()*windowWidth/30);
+				n = (int)(Math.random()*(windowWidth-90)/30);
 				fallingBlock = new SquareBlock(n*30, 0);
 				break;
 			case 3: 
-				n = (int)(Math.random()*windowWidth/30);
+				n = (int)(Math.random()*(windowWidth-90)/30);
 				fallingBlock = new LBlock(n*30, 0);
 				break;
 			case 4: 
-				n = (int)(Math.random()*windowWidth/30);
+				n = (int)(Math.random()*(windowWidth-90)/30);
 				fallingBlock = new JBlock(n*30, 0);
 				break;
 		}
