@@ -1,8 +1,11 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class SquareBlock extends TetrisBlock {
 
 	private ArrayList<Square> squares = new ArrayList<Square>();
+	private Random random = new Random();
+	private int colorInt;
 	
 	public SquareBlock(int x, int y) {
 		super(x, y);
@@ -11,12 +14,18 @@ public class SquareBlock extends TetrisBlock {
 		squares.add(new Square(x, y+30));
 		squares.add(new Square(x+30, y+30));
 		setSquares(squares);
+		colorInt = random.nextInt(256);
+		super.setColor(colorInt);
 	}
 
 	@Override
 	public void rotate() {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public void setColor() {
+		super.setColor(colorInt);
 	}
 
 

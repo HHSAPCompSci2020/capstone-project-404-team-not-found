@@ -14,14 +14,15 @@ public abstract class TetrisBlock {
 	private double velocity;
 	private ArrayList<Square> squares = new ArrayList<Square>();
 	private boolean rotated; 
-	private Random random;
+	private int colorInt;
+//	private Random random;
 	
 	public TetrisBlock (int x, int y) {
 		this.x = x;
 		this.y = y;
 		velocity = 1;
 		rotated = false;
-		random = new Random();
+//		random = new Random();
 //		switch (type) {
 //			case 1: 
 //				squares.add(new Line(x, y, x+120, y));
@@ -63,7 +64,7 @@ public abstract class TetrisBlock {
 		}
 //		int colorInt = random.nextInt(256);
 //		marker.fill(colorInt);
-		marker.fill(26, 39, 176);
+//		marker.fill();
 		marker.shape(block);
 	}
 	
@@ -247,5 +248,12 @@ public abstract class TetrisBlock {
 		return squares;
 	}
 	
+	public void setColor(int color) {
+		colorInt = color;
+	}
+	public int getColor() {
+		System.out.println("color" + colorInt);
+		return colorInt;
+	}
 	
 }

@@ -1,9 +1,12 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 public class RectangleBlock extends TetrisBlock {
 
 	private double x,y;
 	private ArrayList<Square> squares = new ArrayList<Square>();
+	private Random random = new Random();
+	private int colorInt;
 	
 	public RectangleBlock(int x, int y) {
 		super(x, y);
@@ -14,6 +17,8 @@ public class RectangleBlock extends TetrisBlock {
 		squares.add(new Square(x+60, y));
 		squares.add(new Square(x+90, y));
 		setSquares(squares);
+		colorInt = random.nextInt(256);
+		super.setColor(colorInt);
 	}
 
 	@Override
@@ -48,6 +53,10 @@ public class RectangleBlock extends TetrisBlock {
 //		double tempY = y-centerY;
 //		x = centerX-tempY;
 //		y = centerY-tempX;
+	}
+	
+	public void setColor() {
+		super.setColor(colorInt);
 	}
 
 
