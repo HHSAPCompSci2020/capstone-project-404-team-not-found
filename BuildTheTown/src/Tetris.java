@@ -166,13 +166,15 @@ public class Tetris {
 	 * @return false if there are no blocks touching the top of the window, true if there are 
 	 */
 	public boolean isGameOver(Line top) { 
+		boolean result = false;
 		for (int i = 0; i < grid.length; i++) {
 			for (int j = 0; j < grid[0].length; j++) {
-				if (grid[i][j] != null && grid[i][j].isTouching(top)) {
-					return true;
+				if (grid[i][j] != null && grid[i][j].getY() < top.getY()) {
+					result = true;
 				}
 			}
 		}
-		return false;
+		System.out.println(result);
+		return result;
 	}
 }

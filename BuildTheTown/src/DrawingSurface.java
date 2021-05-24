@@ -17,7 +17,7 @@ public class DrawingSurface extends PApplet{
 
 	
 	public DrawingSurface() {
-		top = new Line( 0, 60, r.getWidth(), 60);
+		top = new Line(0, 60, width, 60);
 //		random = new Random();
 //		townPlay = false;
 	}
