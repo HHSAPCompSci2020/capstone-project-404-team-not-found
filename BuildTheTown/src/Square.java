@@ -26,11 +26,12 @@ public class Square {
 //		double tempY = y-centerY;
 //		x = centerX-tempY;
 //		y = centerY-tempX;
-		
 		double tempX = x;
 		x = y;
 		y = tempX;
 	}
+	
+
 	
 //	public void rotate(double rotateX, double rotateY) {
 //		for (int i = 0; i < lines.size(); i++) {

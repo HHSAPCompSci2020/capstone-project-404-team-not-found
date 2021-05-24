@@ -36,6 +36,18 @@ public class RectangleBlock extends TetrisBlock {
 		x = y;
 		y = tempX;
 		
+
+//		double centerX = x+45;
+//		double centerY = y+15;
+//		for (int i = 0; i < squares.size(); i++) {
+//			squares.get(i).rotate(centerX, centerY);
+//		}
+//		System.out.println("rotated");   
+//		
+//		double tempX = x-centerX;
+//		double tempY = y-centerY;
+//		x = centerX-tempY;
+//		y = centerY-tempX;
 	}
 
 

@@ -44,6 +44,7 @@ public class Line {
 	 * rotates this line 90 degrees clockwise
 	 */
 	public void rotate() {
+//	public void rotate() {
 //		double centerX = (x2+x)/2;
 //		double centerY = (y2+y)/2;
 //		double tempX = x-centerX;
@@ -61,6 +62,18 @@ public class Line {
 		x2 = y;
 		y2 = tempX2;
 	}
+	
+//	public void rotate(double rotateX, double rotateY) {
+//		double tempX = x-rotateX;
+//		double tempX2 = x2-rotateX;
+//		double tempY = y-rotateY;
+//		double tempY2 = y2-rotateY;
+//		x = rotateX-tempY;
+//		y = rotateY-tempX;
+//		x2 = rotateX-tempY2;
+//		y2 = rotateY-tempX2;
+//	}
+//	}
 	
 //	public void rotate(double rotateX, double rotateY) {
 //		double tempX = x-rotateX;
