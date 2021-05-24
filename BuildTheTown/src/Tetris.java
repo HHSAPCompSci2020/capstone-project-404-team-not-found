@@ -64,7 +64,7 @@ public class Tetris {
 	 * @param windowWidth width of the window
 	 */
 	public void resetFallingBlock(int windowWidth) {
-		int type = (int)(Math.random()*2) + 1;
+		int type = (int)(Math.random()*4) + 1;
 		System.out.println(type);
 		switch (type) {
 			case 1: 
@@ -74,6 +74,14 @@ public class Tetris {
 			case 2: 
 				n = (int)(Math.random()*windowWidth/30);
 				fallingBlock = new SquareBlock(n*30, 0);
+				break;
+			case 3: 
+				n = (int)(Math.random()*windowWidth/30);
+				fallingBlock = new LBlock(n*30, 0);
+				break;
+			case 4: 
+				n = (int)(Math.random()*windowWidth/30);
+				fallingBlock = new JBlock(n*30, 0);
 				break;
 		}
 	}
@@ -135,7 +143,7 @@ public class Tetris {
 					}
 				}
 			}
-		}
+		} 
 	}
 	/**
 	 * determines when this tetris game is over 
