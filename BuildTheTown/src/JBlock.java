@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -5,8 +6,6 @@ public class JBlock extends TetrisBlock {
 
 	private double x,y;
 	private ArrayList<Square> squares = new ArrayList<Square>();
-	private Random random = new Random();
-	private int colorInt;
 	
 	/**
 	 * Creates a new Tetris Block that is 3 Squares tall and has one Square sticking out horizontally to the right of the top Square
@@ -22,19 +21,13 @@ public class JBlock extends TetrisBlock {
 		squares.add(new Square(x, y+30));
 		squares.add(new Square(x, y+60));
 		setSquares(squares);
-		colorInt = random.nextInt(256);
-		super.setColor(colorInt);
+		super.setColor(Color.YELLOW);
 	}
 
 	@Override
 	public void rotate() {
 		// TODO Auto-generated method stub
 		
-	}
-	
-	public void setColor() {
-		
-		super.setColor(colorInt);
 	}
 
 }

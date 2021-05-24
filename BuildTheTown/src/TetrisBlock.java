@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -13,7 +14,7 @@ public abstract class TetrisBlock {
 	private double x,y;
 	private double velocity; 
 	private ArrayList<Square> squares = new ArrayList<Square>();
-	private int colorInt;
+	private Color color;
 	
 	/**
 	 * Initializes a Tetris Block with a velocity of 1 and the specified coordinate of the top-left corner
@@ -41,7 +42,7 @@ public abstract class TetrisBlock {
 //		int colorInt = random.nextInt(256);
 //		marker.fill(colorInt);
 //		marker.fill();
-		marker.fill(getColor());
+		marker.fill(getColor().getRed(), getColor().getGreen(), getColor().getBlue());
 		marker.shape(block);
 	}
 	
@@ -289,12 +290,13 @@ public abstract class TetrisBlock {
 		return squares;
 	}
 	
-	public void setColor(int color) {
-		colorInt = color;
+	public void setColor(Color color) {
+		this.color = color;
 	}
-	public int getColor() {
+	
+	public Color getColor() {
 //		System.out.println("color" + colorInt);
-		return colorInt;
+		return color;
 	}
 	
 }

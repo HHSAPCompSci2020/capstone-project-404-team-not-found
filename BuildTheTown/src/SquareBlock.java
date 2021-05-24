@@ -1,11 +1,10 @@
+import java.awt.Color;
 import java.util.ArrayList;
 import java.util.Random;
 
 public class SquareBlock extends TetrisBlock {
 
 	private ArrayList<Square> squares = new ArrayList<Square>();
-	private Random random = new Random();
-	private int colorInt;
 	
 	/**
 	 * Creates a new 2x2 Square Tetris Block that is made up of 4 Squares
@@ -19,8 +18,7 @@ public class SquareBlock extends TetrisBlock {
 		squares.add(new Square(x, y+30));
 		squares.add(new Square(x+30, y+30));
 		setSquares(squares);
-		colorInt = random.nextInt(256);
-		super.setColor(colorInt);
+		super.setColor(Color.BLUE);
 	}
 
 	@Override
@@ -29,9 +27,4 @@ public class SquareBlock extends TetrisBlock {
 		
 	}
 	
-	public void setColor() {
-		super.setColor(colorInt);
-	}
-
-
 }

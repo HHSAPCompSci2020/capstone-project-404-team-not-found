@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.util.ArrayList;
@@ -60,7 +61,7 @@ public class Tetris {
 			}
 		}
 		
-		marker.fill(fallingBlock.getColor());
+		marker.fill(fallingBlock.getColor().getRed(), fallingBlock.getColor().getGreen(), fallingBlock.getColor().getBlue());
 		fallingBlock.draw(marker); 
 		fallingBlock.fall();
 	}
