@@ -90,10 +90,8 @@ public class Town {
 	 * @param pY The y-coordinate of the point that has been clicked
 	 */
 	public void placeBlock(double pX, double pY) {
-		if(blockCount > 0) {
+		if(blocks.size() < blockCount)
 			blocks.add(new BuildingBlock(pX - 15, pY - 15)); // block width is 30
-			blockCount--;
-		}
 	}
 	
 	/**
@@ -106,7 +104,6 @@ public class Town {
 			if(blocks.get(i).isPointInRect(pX, pY))
 				blocks.remove(i);
 		}
-		blockCount++;
 	}
 	
 	/**
