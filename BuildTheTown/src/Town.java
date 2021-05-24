@@ -79,4 +79,6 @@ public class Town {
 			blockCount++;
 		}
 	}
+	
+	public boolean getStarted() { return started; }
 }
