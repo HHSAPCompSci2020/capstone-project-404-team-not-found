@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 import processing.core.PApplet;
 import processing.core.PShape;
@@ -7,6 +8,8 @@ public class LBlock extends TetrisBlock {
 	
 	private double x, y;
 	private ArrayList<Square> squares = new ArrayList<Square>();
+	private Random random = new Random();
+	private int colorInt;
 	
 	/**
 	 * Creates a new Tetris Block that is shaped like the letter L 
@@ -23,10 +26,15 @@ public class LBlock extends TetrisBlock {
 		squares.add(new Square(x, y+60));
 		squares.add(new Square(x+30, y+60));
 		setSquares(squares);
+		colorInt = random.nextInt(256);
+		super.setColor(colorInt);
 	}
 
 	public void rotate() {
 		
+	}
+	public void setColor() {
+		super.setColor(colorInt);
 	}
 
 }

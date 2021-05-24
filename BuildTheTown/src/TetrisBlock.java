@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Random;
+
 import processing.core.PApplet;
 import processing.core.PShape;
 
@@ -9,8 +11,9 @@ import processing.core.PShape;
  */
 public abstract class TetrisBlock {
 	private double x,y;
-	private double velocity;
-	private ArrayList<Square> squares = new ArrayList<Square>(); 
+	private double velocity; 
+	private ArrayList<Square> squares = new ArrayList<Square>();
+	private int colorInt;
 	
 	/**
 	 * Initializes a Tetris Block with a velocity of 1 and the specified coordinate of the top-left corner
@@ -21,6 +24,7 @@ public abstract class TetrisBlock {
 		this.x = x;
 		this.y = y;
 		velocity = 1;
+
 	}
 	
 	/**
@@ -34,7 +38,9 @@ public abstract class TetrisBlock {
 			PShape square = marker.createShape(marker.RECT, (float)squares.get(i).getX(), (float)squares.get(i).getY(), 30, 30);
 			block.addChild(square);
 		}
-		marker.fill(0);
+//		int colorInt = random.nextInt(256);
+//		marker.fill(colorInt);
+//		marker.fill();
 		marker.shape(block);
 	}
 	
@@ -264,5 +270,12 @@ public abstract class TetrisBlock {
 		return squares;
 	}
 	
+	public void setColor(int color) {
+		colorInt = color;
+	}
+	public int getColor() {
+		System.out.println("color" + colorInt);
+		return colorInt;
+	}
 	
 }
