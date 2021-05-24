@@ -96,5 +96,5 @@ public class Town {
 	 * Returns whether or not the town part of the game has started
 	 * @return Whether or not the town part of the game has started
 	 */
-	public boolean getStarted() { return started; }
+	public boolean getStarted() { return started; } 
 }

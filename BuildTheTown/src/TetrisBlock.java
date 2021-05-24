@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Random;
+
 import processing.core.PApplet;
 import processing.core.PShape;
 
@@ -12,12 +14,14 @@ public abstract class TetrisBlock {
 	private double velocity;
 	private ArrayList<Square> squares = new ArrayList<Square>();
 	private boolean rotated; 
+	private Random random;
 	
 	public TetrisBlock (int x, int y) {
 		this.x = x;
 		this.y = y;
 		velocity = 1;
 		rotated = false;
+		random = new Random();
 //		switch (type) {
 //			case 1: 
 //				squares.add(new Line(x, y, x+120, y));
@@ -57,7 +61,9 @@ public abstract class TetrisBlock {
 			PShape square = marker.createShape(marker.RECT, (float)squares.get(i).getX(), (float)squares.get(i).getY(), 30, 30);
 			block.addChild(square);
 		}
-		marker.fill(0);
+//		int colorInt = random.nextInt(256);
+//		marker.fill(colorInt);
+		marker.fill(26, 39, 176);
 		marker.shape(block);
 	}
 	

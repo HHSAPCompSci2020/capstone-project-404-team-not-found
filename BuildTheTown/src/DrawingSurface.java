@@ -1,5 +1,7 @@
 import java.awt.Dimension;
 import java.awt.Toolkit;
+import java.util.Random;
+
 import processing.core.PApplet; 
 
 public class DrawingSurface extends PApplet{
@@ -10,21 +12,21 @@ public class DrawingSurface extends PApplet{
 //	private boolean townPlay; 
 	Dimension r = Toolkit.getDefaultToolkit().getScreenSize();
 	private Line top;
-	private boolean townPlay;
+//	private Random random;
+//	private boolean townPlay;
 
 	
 	public DrawingSurface() {
-		town = new Town();
-		menu = new Menu();
-		top = new Line( 0, 70, width, 70);
-		townPlay = false;
-		top = new Line( 0, 70, r.getWidth(), 70);
+		top = new Line( 0, 60, r.getWidth(), 60);
+//		random = new Random();
 //		townPlay = false;
 	}
 	
 	
 	public void setup() {
 		tetris = new Tetris(this);
+		town = new Town();
+		menu = new Menu();
 	}
 	
 	public void settings() {
@@ -58,7 +60,9 @@ public class DrawingSurface extends PApplet{
 	}
 	
 	private void runTetris() {
-		this.line((float) 0, (float)70, (float)r.getWidth(), (float)70);
+		this.line((float) 0, (float)60, (float)r.getWidth(), (float)60);
+//		int colorInt = random.nextInt(256);
+//		marker.fill(colorInt);
 		tetris.draw(this);
 		tetris.act(this);
 				
