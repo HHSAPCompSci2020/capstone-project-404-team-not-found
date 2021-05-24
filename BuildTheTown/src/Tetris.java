@@ -160,6 +160,10 @@ public class Tetris {
 		} 
 	}
 	
+	/**
+	 * Determines whether the falling block is touching a placed block vertically
+	 * @return true if the falling block is partially overlapping/touching a placed block, false if not
+	 */
 	public boolean isFallingBlockTouchingBlocks() {
 		boolean result = false;
 		for (int i = 0; i < grid.length; i++) {

@@ -231,6 +231,11 @@ public abstract class TetrisBlock {
 		return false;
 	}
 	
+	/**
+	 * Determines Determines if this Tetris Block is partially overlapping vertically with Square, i.e. part of their vertical sides are touching but not necessarily completely
+	 * @param block Square to test overlapping with 
+	 * @return true if this Tetris Block is partially vertically overlapping with the Square, false if not
+	 */
 	public boolean isPartiallyOverlapping(Square block) {
 		ArrayList<Line> lines = this.getVerticalLines();
 		Line[] otherLines = block.getVerticalLines();
