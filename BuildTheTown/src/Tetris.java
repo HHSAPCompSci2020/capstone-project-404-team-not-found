@@ -56,7 +56,7 @@ public class Tetris {
 			}
 		}
 		
-		marker.fill(fallingBlock.getColor());
+//		marker.fill(fallingBlock.getColor());
 		fallingBlock.draw(marker);
 		fallingBlock.fall();
 	}

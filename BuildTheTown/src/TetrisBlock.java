@@ -65,6 +65,7 @@ public abstract class TetrisBlock {
 //		int colorInt = random.nextInt(256);
 //		marker.fill(colorInt);
 //		marker.fill();
+		marker.fill(getColor());
 		marker.shape(block);
 	}
 	
@@ -252,7 +253,7 @@ public abstract class TetrisBlock {
 		colorInt = color;
 	}
 	public int getColor() {
-		System.out.println("color" + colorInt);
+//		System.out.println("color" + colorInt);
 		return colorInt;
 	}
 	
