@@ -44,8 +44,16 @@ public class BuildingBlock {
 	/**
 	 * Draws this block
 	 * @param marker The PApplet with which to draw the block
+	 * @param daytime Whether or not it is daytime in the town
 	 */
-	public void draw(PApplet marker) {
+	public void draw(PApplet marker, boolean daytime) {
+		if(daytime)
+			marker.stroke(0);
+		else
+			marker.stroke(255);
+		
+		marker.noFill();
+		
 		marker.square((float)x, (float)y, (float)WIDTH);
 	}
 	
