@@ -8,6 +8,12 @@ public class LBlock extends TetrisBlock {
 	private double x, y;
 	private ArrayList<Square> squares = new ArrayList<Square>();
 	
+	/**
+	 * Creates a new Tetris Block that is shaped like the letter L 
+	 * 3 Squares tall and one Square sticking out horizontally to the right of the bottom Square
+	 * @param x X-coordinate of the top-left corner of this L-Block
+	 * @param y Y-coordinate of the top-left corner of this L-Block
+	 */
 	public LBlock(int x, int y) {
 		super(x, y);
 		this.x = x;
@@ -23,18 +29,4 @@ public class LBlock extends TetrisBlock {
 		
 	}
 
-//	public void draw(PApplet marker) {
-//		PShape block; 
-//		block = marker.createShape(marker.GROUP);
-//		PShape square1 = marker.createShape(marker.RECT, (float)x, (float)y, 30, 30);
-//		PShape square2 = marker.createShape(marker.RECT, (float)x, (float)y+30, 30, 30);
-//		PShape square3 = marker.createShape(marker.RECT, (float)x, (float)y+60, 30, 30);
-//		PShape square4 = marker.createShape(marker.RECT, (float)x+30, (float)y+60, 30, 30);
-//		block.addChild(square1);
-//		block.addChild(square2);
-//		block.addChild(square3);
-//		block.addChild(square4);
-//		marker.fill(0);
-//		marker.shape(block);
-//	}
 }

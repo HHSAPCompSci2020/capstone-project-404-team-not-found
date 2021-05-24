@@ -10,7 +10,11 @@ public class Tetris {
 	Dimension r = Toolkit.getDefaultToolkit().getScreenSize();
 	private int points;
 	
-	
+	/**
+	 * Instantiates this Tetris Game with a grid of 30x30 pixel Squares that encompasses the entirety of the window 
+	 * Initializes the falling block 
+	 * @param marker PApplet to provide the height and width of the window
+	 */
 	public Tetris(PApplet marker) {
 //		System.out.println("width: " + (marker.width));
 //		System.out.println("height: " + (marker.height));
@@ -45,7 +49,7 @@ public class Tetris {
 	
 	/**
 	 * draws the placed tetrisBlocks and the falling block
-	 * @param marker
+	 * @param marker PApplet with which to draw this Tetris game with 
 	 */
 	public void draw(PApplet marker) {
 		for (int i = 0; i < grid.length; i++) {
@@ -119,10 +123,18 @@ public class Tetris {
 		}
 	}
 	
+	/**
+	 * 
+	 * @return the Tetris Block that is falling at this moment in the game
+	 */
 	public TetrisBlock getFallingBlock() {
 		return fallingBlock;
 	}
 	
+	/**
+	 * 
+	 * @return the current number of points that the user has scored
+	 */
 	public int getNumFallenBlocks() {
 		return points;
 	}

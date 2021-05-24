@@ -5,6 +5,11 @@ public class JBlock extends TetrisBlock {
 	private double x,y;
 	private ArrayList<Square> squares = new ArrayList<Square>();
 	
+	/**
+	 * Creates a new Tetris Block that is 3 Squares tall and has one Square sticking out horizontally to the right of the top Square
+	 * @param x X-coordinate of the top-left corner of this J-Block
+	 * @param y Y-coordinate of the top-left corner of this J-Block
+	 */
 	public JBlock(int x, int y) {
 		super(x, y);
 		this.x = x;

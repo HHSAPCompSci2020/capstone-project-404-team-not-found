@@ -1,7 +1,15 @@
+/**
+ * 
+ * @author Tarini Maram
+ *
+ */
 public class Line {
 
 	private double x, y, x2, y2;
 	
+	/**
+	 * Creates a new Line with default end points (0,0) and (0,0).
+	 */
 	public Line() {
 		this.x = 0;
 		this.y = 0;
@@ -9,6 +17,13 @@ public class Line {
 		this.y2 = 0;
 	}
 	
+	/**
+	 * Creates a new Line with specified endpoints
+	 * @param x X-coordinate of the starting point
+	 * @param y Y-coordinate of the starting point
+	 * @param x2 X-coordinate of the ending point
+	 * @param y2 Y-coordinate of the ending point
+	 */
 	public Line(double x, double y, double x2, double y2) {
 		this.x = x;
 		this.y = y;
@@ -16,6 +31,13 @@ public class Line {
 		this.y2 = y2;
 	}
 	
+	/**
+	 * Determines whether this Line is overlapping with another Line
+	 * Overlapping means that one Line has to be completely contained within the other Line
+	 * @param other the other Line to be checked for overlapping
+	 * @return true if the two lines are overlapping, false if otherwise
+	 * @pre this Line and the other Line have to both be either horizontal or vertical
+	 */
 	public boolean overlaps(Line other) {
 		double smallX = getSmallerLine(other).getX();
 		double smallY = getSmallerLine(other).getY();
@@ -32,6 +54,12 @@ public class Line {
 		return false;
 	}
 	
+	/**
+	 * Moves this line by the specified horizontal and vertical translations 
+	 * 
+	 * @param x the horizontal shift that this Line should move by
+	 * @param y the vertical shift that this Line should move by
+	 */
 	public void move(double x, double y) {
 		this.x += x;
 		this.y += y;
@@ -43,20 +71,7 @@ public class Line {
 	/**
 	 * rotates this line 90 degrees clockwise
 	 */
-
 	public void rotate() {
-//	public void rotate() {
-//		double centerX = (x2+x)/2;
-//		double centerY = (y2+y)/2;
-//		double tempX = x-centerX;
-//		double tempX2 = x2-centerX;
-//		double tempY = y-centerY;
-//		double tempY2 = y2-centerY;
-//		x = centerX-tempY;
-//		y = centerY-tempX;
-//		x2 = centerX-tempY2;
-//		y2 = centerY-tempX2;
-
 		double tempX = x;
 		double tempX2 = x2;
 		x = y;
@@ -65,29 +80,9 @@ public class Line {
 		y2 = tempX2;
 	}
 	
-//	public void rotate(double rotateX, double rotateY) {
-//		double tempX = x-rotateX;
-//		double tempX2 = x2-rotateX;
-//		double tempY = y-rotateY;
-//		double tempY2 = y2-rotateY;
-//		x = rotateX-tempY;
-//		y = rotateY-tempX;
-//		x2 = rotateX-tempY2;
-//		y2 = rotateY-tempX2;
-//	}
-//	}
-	
-//	public void rotate(double rotateX, double rotateY) {
-//		double tempX = x-rotateX;
-//		double tempX2 = x2-rotateX;
-//		double tempY = y-rotateY;
-//		double tempY2 = y2-rotateY;
-//		x = rotateX-tempY;
-//		y = rotateY-tempX;
-//		x2 = rotateX-tempY2;
-//		y2 = rotateY-tempX2;
-
-	
+	/**
+	 * @return true if this Line is horizontal, false if otherwise
+	 */
 	public boolean isHorizontal() {
 		if (y == y2) {
 			return true;
@@ -96,6 +91,10 @@ public class Line {
 		}
 	}
 	
+	/**
+	 * 
+	 * @return true if this Line is vertical, false if otherwise
+	 */
 	public boolean isVertical() {
 		if (x == x2) {
 			return true;
@@ -104,22 +103,43 @@ public class Line {
 		}
 	}
 	
+	/**
+	 * 
+	 * @return X-coordinate of the starting point of this Line
+	 */
 	public double getX() {
 		return x;
 	}
 	
+	/**
+	 * 
+	 * @return Y-coordinate of the starting point of this Line
+	 */
 	public double getY() {
 		return y;
 	}
 	
+	/**
+	 * 
+	 * @return X-coordinate of the ending point of this Line
+	 */
 	public double getX2() {
 		return x2;
 	}
 	
+	/**
+	 * 
+	 * @return Y-coordinate of the ending point of this Line
+	 */
 	public double getY2() {
 		return y2;
 	}
 	
+	/**
+	 * Determines if this Line is equal to the specified Line
+	 * @param l other Line to compare this Line with
+	 * @return true if this Line and Line l are equal, false if not
+	 */
 	public boolean equals(Line l) {
 		if (getX() == l.getX() && getY() == l.getY() && getX2() == l.getX2() && getY2() == l.getY2()) {
 			return true;

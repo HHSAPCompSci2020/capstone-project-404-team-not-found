@@ -2,10 +2,22 @@ import java.util.ArrayList;
 
 import processing.core.PApplet;
 
+/**
+ * 
+ * @author Tarini Maram
+ *
+ */
 public class Square {
 	private ArrayList<Line> lines;
 	private double x, y;
 	
+	/**
+	 * Creates a new Square at the specified coordinates of the top left corner
+	 * and with side length 30
+	 * The Square is constructed using 4 Lines
+	 * @param x X-coordinate of the top-left corner of this Square
+	 * @param y Y-coordinate of the top-left corner of this Square
+	 */
 	public Square(double x, double y) {
 		this.x = x;
 		this.y = y;
@@ -16,18 +28,9 @@ public class Square {
 		lines.add(new Line(x, y+30, x, y));
 	}
 	
-//	public void rotate() {
-//		for (int i = 0; i < lines.size(); i++) {
-//			lines.get(i).rotate();
-//		}
-//		double centerX = x+15;
-//		double centerY = x+15;
-//		double tempX = x-centerX;       
-//		double tempY = y-centerY;
-//		x = centerX-tempY;
-//		y = centerY-tempX;
-//	}
-	
+	/**
+	 * Rotates this square 90 degrees clockwise
+	 */
 	public void rotate() {
 		for (int i = 0; i < lines.size(); i++) {
 			lines.get(i).rotate();
@@ -37,35 +40,19 @@ public class Square {
 		y = tempX;
 	}
 	
-
-	
-//	public void rotate(double rotateX, double rotateY) {
-//		for (int i = 0; i < lines.size(); i++) {
-//			lines.get(i).rotate(rotateX, rotateY);
-//		}
-//		double tempX = x-rotateX;       
-//		double tempY = y-rotateY;
-//		x = rotateX-tempY;
-//		y = rotateY-tempX;
-//	}
-
-	
+	/**
+	 * Draws this square
+	 * @param marker PApplet to be used to draw the square with
+	 */
 	public void draw(PApplet marker) {
 		marker.rect((float)x, (float)y, 30, 30);
 	}
 	
-//	public void move(boolean isRight) {
-//		for (int i = 0; i < lines.size(); i++) {
-//			if (isRight) {
-//				lines.get(i).move(30, 0);
-//				x += 30;
-//			} else {
-//				lines.get(i).move(-30, 0);
-//				x -= 30;
-//			}
-//		}
-//	}
-	
+	/**
+	 * Moves this square by the specified horizontal and vertical translations
+	 * @param x the horizontal shift that this Square should move by
+	 * @param y the vertical shift that this Square should move by
+	 */
 	public void move(double x, double y) {
 		for (int i = 0; i < lines.size(); i++) {
 			lines.get(i).move(x, y);
@@ -74,6 +61,11 @@ public class Square {
 		this.y += y;
 	}
 	
+	/**
+	 * Determines if a side of this Square is touching a side of another Square
+	 * @param block Square to test the touching with
+	 * @return true if this Square is touching the other Square, false if not
+	 */
 	public boolean isTouching(Square block) {
 		for (int i = 0; i < lines.size(); i++) {
 			for (int j = 0; j < block.getLines().size(); j++) {
@@ -85,6 +77,11 @@ public class Square {
 		return false;
 	}
 	
+	/**
+	 * Determines if a side of this Square is overlapping with a Line
+	 * @param line Line to test the overlapping with
+	 * @return true if this Square is touching the Line, false if not
+	 */
 	public boolean isTouching(Line line) {
 		for (int i = 0; i < lines.size(); i++) {
 			if (lines.get(i).overlaps(line)) {
@@ -94,18 +91,30 @@ public class Square {
 		return false;
 	}
 	
+	/**
+	 * @return X-coordinate of the top left corner of this Square
+	 */
 	public double getX() {
 		return x;
 	}
 	
+	/**
+	 * @return Y-coordinate of the top left corner of this Square
+	 */
 	public double getY() {
 		return y;
 	}
 	
+	/**
+	 * @return width of this square, which is 30
+	 */
 	public double getWidth() {
 		return 30;
 	}
 	
+	/**
+	 * @return the sides of this square that are horizontal lines
+	 */
 	public Line[] getHorizontalLines() {
 		Line[] lines = new Line[2];
 		lines[0] = this.lines.get(0);
@@ -113,12 +122,21 @@ public class Square {
 		return lines;
 	}
 	
+	/**
+	 * 
+	 * @return the sides of this square that are vertical lines
+	 */
 	public Line[] getVerticalLines() {
 		Line[] lines = new Line[2];
 		lines[0] = this.lines.get(1);
 		lines[1] = this.lines.get(3);
 		return lines;
 	}
+	
+	/**
+	 * 
+	 * @return the 4 lines that make up the sides of this square
+	 */
 	public ArrayList<Line> getLines() {
 		return lines;
 	}

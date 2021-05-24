@@ -10,46 +10,23 @@ import processing.core.PShape;
 public abstract class TetrisBlock {
 	private double x,y;
 	private double velocity;
-	private ArrayList<Square> squares = new ArrayList<Square>();
-	private boolean rotated; 
+	private ArrayList<Square> squares = new ArrayList<Square>(); 
 	
+	/**
+	 * Initializes a Tetris Block with a velocity of 1 and the specified coordinate of the top-left corner
+	 * @param x X-coordinate of the top-left corner
+	 * @param y Y-coordinate of the top-right corner
+	 */
 	public TetrisBlock (int x, int y) {
 		this.x = x;
 		this.y = y;
 		velocity = 1;
-		rotated = false;
-//		switch (type) {
-//			case 1: 
-//				squares.add(new Line(x, y, x+120, y));
-//				squares.add(new Line(x+120, y, x+120, y+30));
-//				squares.add(new Line(x+120, y+30, x, y+30));
-//				squares.add(new Line(x, y+30, x, y));
-//				break;
-////			case 2: 
-////				squares.add(new Line(x, y, x+30, y));
-////				squares.add(new Line(x+30, y, x+30, y+60));
-////				squares.add(new Line(x+30, y+60, x+60, y+60));
-////				squares.add(new Line(x+60, y+60, x+60, y+90));
-////				squares.add(new Line(x+60, y+90, x, y+90));
-////				squares.add(new Line(x, y+90, x, y));
-////				break;
-////			case 3: 
-////				squares.add(new Line(x, y, x+60, y));
-////				squares.add(new Line(x+60, y, x+60, y+30));
-////				squares.add(new Line(x+60, y+30, x+30, y+30));
-////				squares.add(new Line(x+30, y+30, x+30, y+90));
-////				squares.add(new Line(x+30, y+90, x, y+90));
-////				squares.add(new Line(x, y+90, x, y));
-////				break;
-//			case 2: 
-//				squares.add(new Line(x, y, x+60, y));
-//				squares.add(new Line(x+60, y, x+60, y+60));
-//				squares.add(new Line(x+60, y+60, x, y+60));
-//				squares.add(new Line(x, y+60, x, y));
-//				break;
-//		}
 	}
 	
+	/**
+	 * Draws this Tetris Block
+	 * @param marker PApplet with which to draw this Tetris Block with
+	 */
 	public void draw(PApplet marker) {
 		PShape block; 
 		block = marker.createShape(marker.GROUP);
@@ -61,16 +38,14 @@ public abstract class TetrisBlock {
 		marker.shape(block);
 	}
 	
-	// rotates by 90 degrees clockwise 
-//	public void rotate() {
-//		for (int i = 0; i < squares.size(); i++) {
-//			squares.get(i).rotate();
-//		}
-//		rotated = !rotated;
-//	}
-	
+	/**
+	 * Rotates this Tetris Block 90 degrees clockwise
+	 */
 	public abstract void rotate();
 	
+	/**
+	 * Makes this Tetris Block fall (increasing y-value) according to the velocity
+	 */
 	public void fall() {
 		for (int i = 0; i < squares.size(); i++) {
 			Square square = squares.get(i);
@@ -79,6 +54,11 @@ public abstract class TetrisBlock {
 		
 	}
 	
+	/**
+	 * Moves this Tetris Block 30 pixels horizontally
+	 * 
+	 * @param isRight true if the Tetris Block should move right, false if the Tetris Block is to move left
+	 */
 	public void move(boolean isRight) {
 		for (int i = 0; i < squares.size(); i++) {
 			if (isRight) {
@@ -91,18 +71,10 @@ public abstract class TetrisBlock {
 		}
 	}
 	
-//	public boolean isTouching(TetrisBlock block) {
-//		for (int i = 0; i < squares.size(); i++) {
-//			for (int j = 0; j < block.getSquares().size(); j++) {
-//				//System.out.println("i: " + i + "j: " + j);
-//				if (squares.get(i).overlaps(block.getSquares().get(j))) {
-//					return true;
-//				}
-//			}
-//		}
-//		return false;
-//	}
-	
+	/**
+	 * 
+	 * @return All the horizontal Lines from all the Squares in this Tetris Block 
+	 */
 	public ArrayList<Line> getHorizontalLines() {
 		ArrayList<Line> lines = new ArrayList<Line>();
 		for (int i = 0; i < squares.size(); i++) {
@@ -121,6 +93,10 @@ public abstract class TetrisBlock {
 		return lines;
 	}
 	
+	/**
+	 * 
+	 * @return All the vertical Lines from all the Squares in this Tetris Block
+	 */
 	public ArrayList<Line> getVerticalLines() {
 		ArrayList<Line> lines = new ArrayList<Line>();
 		for (int i = 0; i < squares.size(); i++) {
@@ -141,6 +117,11 @@ public abstract class TetrisBlock {
 		return lines;
 	}
 	
+	/**
+	 * Determines if one of the horizontal sides of this Tetris Block is overlapping with one of the horizontal sides of the other specified Tetris Block
+	 * @param block the other Tetris Block to test the overlapping with 
+	 * @return true if this Tetris Block is horizontally touching the other Tetris Block, false if not
+	 */
 	public boolean isTouchingHorizontal(TetrisBlock block) {
 		ArrayList<Line> lines = this.getHorizontalLines();
 		ArrayList<Line> otherLines = block.getHorizontalLines();
@@ -154,6 +135,11 @@ public abstract class TetrisBlock {
 		return false;
 	}
 	
+	/**
+	 * Determines if one of the vertical sides of this Tetris Block is overlapping with one of the vertical sides of the other specified Tetris Block
+	 * @param block the other Tetris Block to test the overlapping with 
+	 * @return true if this Tetris Block is vertically touching the other Tetris Block, false if not
+	 */
 	public boolean isTouchingVertical(TetrisBlock block) {
 		ArrayList<Line> lines = this.getVerticalLines();
 		ArrayList<Line> otherLines = block.getVerticalLines();
@@ -167,6 +153,11 @@ public abstract class TetrisBlock {
 		return false;
 	}
 	
+	/**
+	 * Determines if one of the horizontal sides of this Tetris Block is overlapping with one of the horizontal sides of the specified Square
+	 * @param block the Square to test the overlapping with 
+	 * @return true if this Tetris Block is horizontally touching the Square, false if not
+	 */
 	public boolean isTouchingHorizontal(Square square) {
 		if (square == null) {
 			return false;
@@ -183,6 +174,11 @@ public abstract class TetrisBlock {
 		return false;
 	}
 	
+	/**
+	 * Determines if one of the vertical sides of this Tetris Block is overlapping with one of the vertical sides of the specified Square
+	 * @param block the Square to test the overlapping with 
+	 * @return true if this Tetris Block is vertically touching the Square, false if not
+	 */
 	public boolean isTouchingVertical(Square square) {
 		ArrayList<Line> lines = this.getVerticalLines();
 		Line[] otherLines = square.getVerticalLines();
@@ -196,6 +192,12 @@ public abstract class TetrisBlock {
 		return false;
 	}
 	
+	/**
+	 * Determines if one of the horizontal sides of this Tetris Block is overlapping with the specified Line
+	 * @param line Line to test the overlapping with 
+	 * @pre Line must be horizontal 
+	 * @return true if this Tetris Block is horizontally touching this Line, false if not
+	 */
 	public boolean isTouchingHorizontal(Line line) {
 		ArrayList<Line> lines = this.getHorizontalLines();
 		for (int i = 0; i < lines.size(); i++) {
@@ -206,6 +208,12 @@ public abstract class TetrisBlock {
 		return false;
 	}
 	
+	/**
+	 * Determines if one of the vertical sides of this Tetris Block is overlapping with the specified Line
+	 * @param line Line to test the overlapping with 
+	 * @pre Line must be vertical 
+	 * @return true if this Tetris Block is vertically touching this Line, false if not
+	 */
 	public boolean isTouchingVertical(Line line) {
 		ArrayList<Line> lines = this.getVerticalLines();
 		for (int i = 0; i < lines.size(); i++) {
@@ -216,27 +224,42 @@ public abstract class TetrisBlock {
 		return false;
 	}
 	
+	/**
+	 * Stops this tetris block from falling (moving down vertically) 
+	 * Sets velocity to 0
+	 */
 	public void stopFall() {
 		velocity = 0;
 	}
 	
-	
+	/**
+	 * 
+	 * @return X-coordinate of the top-left corner of this Tetris Block
+	 */
 	public double getX() {
 		return x;
 	}
 	
+	/**
+	 * 
+	 * @return Y-coordinate of the top-left corner of this Tetris Block 
+	 */
 	public double getY() {
 		return y;
 	}
 	
-	public boolean getRotation() {
-		return rotated;
-	}
-	
+	/**
+	 * Sets the Squares that are used to construct this Tetris Block 
+	 * @param squares Squares that make up this Tetris Block
+	 */
 	public void setSquares(ArrayList<Square> squares) {
 		this.squares = squares;
 	}
 	
+	/**
+	 * 
+	 * @return the Squares that make up this Tetris Block
+	 */
 	public ArrayList<Square> getSquares() {
 		return squares;
 	}

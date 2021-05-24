@@ -5,6 +5,11 @@ public class RectangleBlock extends TetrisBlock {
 	private double x,y;
 	private ArrayList<Square> squares = new ArrayList<Square>();
 	
+	/**
+	 * Creates a four-square long horizontal Tetris Block at the specified coordinate
+	 * @param x X-coordinate of the top-left corner of this Rectangle Block
+	 * @param y Y-coordinate of the top-left corner of this Rectangle Block
+	 */
 	public RectangleBlock(int x, int y) {
 		super(x, y);
 		this.x = x;
@@ -18,36 +23,14 @@ public class RectangleBlock extends TetrisBlock {
 
 	@Override
 	public void rotate() {
-		// TODO Auto-generated method stub
-//		double centerX = x+45;
-//		double centerY = y+15;
 		for (int i = 0; i < squares.size(); i++) {
-//			squares.get(i).rotate(centerX, centerY);
 			squares.get(i).rotate();
 		}
-//		System.out.println("rotated");   
-//		
-//		double tempX = x-centerX;
-//		double tempY = y-centerY;
-//		x = centerX-tempY;
-//		y = centerY-tempX;
 		
 		double tempX = x;
 		x = y;
 		y = tempX;
 		
-
-//		double centerX = x+45;
-//		double centerY = y+15;
-//		for (int i = 0; i < squares.size(); i++) {
-//			squares.get(i).rotate(centerX, centerY);
-//		}
-//		System.out.println("rotated");   
-//		
-//		double tempX = x-centerX;
-//		double tempY = y-centerY;
-//		x = centerX-tempY;
-//		y = centerY-tempX;
 	}
 
 
