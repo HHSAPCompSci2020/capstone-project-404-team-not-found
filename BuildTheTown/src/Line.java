@@ -54,6 +54,12 @@ public class Line {
 		return false;
 	}
 	
+	/**
+	 * Determines if this vertical line is partially overlapping with another vertical line, in other words only a portion of each line is overlapping with each other
+	 * @pre this Line and the other Line must be vertical
+	 * @param other Line to test overlapping with 
+	 * @return true if this line is partially overlapping, false if not
+	 */
 	public boolean isPartiallyOverlapping(Line other) {
 		double smallX = getSmallerLine(other).getX();
 		double smallY = getSmallerLine(other).getY();

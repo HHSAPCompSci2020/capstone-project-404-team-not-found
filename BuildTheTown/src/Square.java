@@ -133,6 +133,11 @@ public class Square {
 		return lines;
 	}
 	
+	/**
+	 * Determines if this Square is partially overlapping vertically with another Square, i.e. part of their vertical sides are touching but not necessarily completely
+	 * @param other Square to test overlapping with 
+	 * @return true if this Square is partially vertically overlapping, false if not
+	 */
 	public boolean isPartiallyOverlapping(Square block) {
 		for (int i = 0; i < lines.size(); i++) {
 			for (int j = 0; j < block.getLines().size(); j++) {
