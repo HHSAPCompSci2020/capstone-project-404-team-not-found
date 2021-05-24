@@ -8,8 +8,19 @@ import java.util.ArrayList;
  */
 public class Town {
 	
+	/**
+	 * All the building blocks in the town
+	 */
 	private ArrayList<BuildingBlock> blocks;
+	
+	/**
+	 * The number of blocks that can be placed in the town
+	 */
 	private int blockCount;
+	
+	/**
+	 * Whether or not the town part of the game has started
+	 */
 	private boolean started;
 	
 	public Town() {
@@ -42,6 +53,7 @@ public class Town {
 	
 	/**
 	 * Moves the blocks in the Town with physics
+	 * @param marker The PApplet with which the floor's y-coordinate will be generated
 	 */
 	public void act(PApplet marker) {
 		if(started) {
@@ -80,5 +92,9 @@ public class Town {
 		}
 	}
 	
+	/**
+	 * Returns whether or not the town part of the game has started
+	 * @return Whether or not the town part of the game has started
+	 */
 	public boolean getStarted() { return started; }
 }
