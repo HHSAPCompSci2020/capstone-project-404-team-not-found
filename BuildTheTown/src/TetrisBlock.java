@@ -54,10 +54,9 @@ public abstract class TetrisBlock {
 		PShape block; 
 		block = marker.createShape(marker.GROUP);
 		for (int i = 0; i < squares.size(); i++) {
-			PShape square = marker.createShape(marker.RECT, (float)squares.get(i).getX(), (float)squares.get(i).getY(), (float)squares.get(i).getWidth(), (float)squares.get(i).getWidth());
+			PShape square = marker.createShape(marker.RECT, (float)squares.get(i).getX(), (float)squares.get(i).getY(), 30, 30);
 			block.addChild(square);
 		}
-		
 		marker.fill(0);
 		marker.shape(block);
 	}

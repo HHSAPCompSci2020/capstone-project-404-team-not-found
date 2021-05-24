@@ -27,11 +27,17 @@ public class DrawingSurface extends PApplet{
 		tetris = new Tetris(this);
 	}
 	
+	public void settings() {
+		size(800, 600);
+	}
+	
 	/**
 	 * Draws all the Tetris and Town on to the window 
 	 */
 	public void draw() {
 		background(255);
+//		TetrisBlock block = new LBlock(50, 50);
+//		block.draw(this);
 		
 		if (!(menu.getDone())) {
 			runMenu();
