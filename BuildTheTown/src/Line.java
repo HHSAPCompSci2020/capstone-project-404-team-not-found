@@ -168,5 +168,4 @@ public class Line {
 	public String toString() {
 		return "(" + getX() + "," + getY() + ") (" + getX2() + "," + getY2() + ")";
 	}
-	
 }

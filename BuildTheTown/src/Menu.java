@@ -8,10 +8,9 @@ import processing.core.PApplet;
 public class Menu{
 	
 	/**
-	 * True if start button has been clicked, false if not
+	 * True if the start button has been clicked, false if not
 	 */
 	private boolean done;
-	
 	
 	public Menu() {
 		done = false;
@@ -20,8 +19,6 @@ public class Menu{
 	/**
 	 * Draws the menu, with the word "MENU" and a button that says "START"
 	 * @param marker The PApplet with which to draw the menu
-	 * @param width The width of the window
-	 * @param height The height of the window
 	 */
 	public void draw(PApplet marker) {
 		double width = marker.width;
@@ -53,6 +50,10 @@ public class Menu{
 			done = true;
 	}
 	
+	/**
+	 * Returns true if the start button has been clicked, false if not
+	 * @return true if the start button has been clicked, false if not
+	 */
 	public boolean getDone() { return done; }
 
 }

@@ -8,9 +8,29 @@ import processing.core.PApplet;
  */
 public class BuildingBlock {
 	
-	private double x, y;
+	/**
+	 * The x-coordinate of the top left corner of this block
+	 */
+	private double x;
+	
+	/**
+	 * The y-coordinate of the top left corner of this block
+	 */
+	private double y;
+	
+	/**
+	 * The width of this block
+	 */
 	private final double WIDTH;
+	
+	/**
+	 * The gravity the block will have
+	 */
 	private final double GRAVITY;
+	
+	/**
+	 * The velocity at which the block is moving up/down
+	 */
 	private double yVelocity;
 	
 	public BuildingBlock(double x, double y) {
@@ -31,6 +51,7 @@ public class BuildingBlock {
 	
 	/**
 	 * Moves this block with physics
+	 * @param blocks All the building blocks in the town
 	 * @param floorYCoord The y-coordinate of the floor
 	 */
 	public void act(ArrayList<BuildingBlock> blocks, double floorYCoord) {
@@ -61,9 +82,10 @@ public class BuildingBlock {
 	}
 	
 	/**
-	 * Checks if this block is in this block and returns the result as a boolean
-	 * @param block2 The block to be checked for touching
-	 * @return Whether or not this block is touching block2
+	 * Checks if a point is in this block and returns the result as a boolean
+	 * @param pX The x-coordinate of the point to be checked for touching
+	 * @param pY The y-coordinate of the point to be checked for touching
+	 * @return Whether or not the point is touching block2
 	 */
 	public boolean isPointInRect(double pX, double pY) {
 		return (pX > x) && (pX < x + WIDTH) && (pY > y) && (pY < y + WIDTH);

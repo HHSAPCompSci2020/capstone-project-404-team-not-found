@@ -94,6 +94,7 @@ public class Tetris {
 	 * detects when a row of placed blocks is full, updates points, and deletes it
 	 */
 	public void detectRow() {
+		//System.out.println("searching for a row");
 		boolean isFull = true;
 		for (int i = 0; i < grid.length; i++) {
 			isFull = true;
