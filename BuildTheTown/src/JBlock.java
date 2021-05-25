@@ -24,10 +24,10 @@ public class JBlock extends TetrisBlock {
 		super.setColor(Color.YELLOW);
 	}
 
-	@Override
-	public void rotate() {
-		// TODO Auto-generated method stub
-		
-	}
+//	@Override
+//	public void rotate() {
+//		// TODO Auto-generated method stub
+//		
+//	}
 
 }

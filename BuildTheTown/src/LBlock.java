@@ -28,8 +28,8 @@ public class LBlock extends TetrisBlock {
 		super.setColor(Color.RED);
 	}
 
-	public void rotate() {
-		
-	}
+//	public void rotate() {
+//		
+//	}
 
 }

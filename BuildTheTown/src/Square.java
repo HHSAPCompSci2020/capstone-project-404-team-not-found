@@ -38,9 +38,14 @@ public class Square {
 		for (int i = 0; i < lines.size(); i++) {
 			lines.get(i).rotate();
 		}
+		y = y *-1;
 		double tempX = x;
-		x = y;
+		double tempY = y;
+		x = -y;
 		y = tempX;
+		//y = y *-1;
+		x += tempX;
+		y += tempY;
 	}
 	
 	/**

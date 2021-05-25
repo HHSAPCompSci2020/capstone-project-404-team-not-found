@@ -49,7 +49,20 @@ public abstract class TetrisBlock {
 	/**
 	 * Rotates this Tetris Block 90 degrees clockwise
 	 */
-	public abstract void rotate();
+	public void rotate() {
+		for (int i = 0; i < squares.size(); i++) {
+			squares.get(i).rotate();
+		}
+		y = y *-1;
+		double tempX = x;
+		double tempY = y;
+		x = -y;
+		y = tempX;
+		//y = y *-1;
+		x += tempX;
+		y += tempY;
+		System.out.println("(" + x + "," + y + ")");
+	}
 	
 	/**
 	 * Makes this Tetris Block fall (increasing y-value) according to the velocity

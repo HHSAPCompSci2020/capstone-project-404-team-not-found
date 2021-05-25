@@ -24,17 +24,17 @@ public class RectangleBlock extends TetrisBlock {
 		setColor(Color.GREEN);
 	}
 
-	@Override
-	public void rotate() {
-		for (int i = 0; i < squares.size(); i++) {
-			squares.get(i).rotate();
-		}
-		
-		double tempX = x;
-		x = y;
-		y = tempX;
-		
-	}
+//	@Override
+//	public void rotate() {
+//		for (int i = 0; i < squares.size(); i++) {
+//			squares.get(i).rotate();
+//		}
+//		
+//		double tempX = x;
+//		x = y;
+//		y = tempX;
+//		
+//	}
 
 
 

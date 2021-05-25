@@ -91,12 +91,29 @@ public class Line {
 	 * rotates this line 90 degrees clockwise
 	 */
 	public void rotate() {
+//		double tempX = x;
+//		double tempX2 = x2;
+//		x = y;
+//		y = tempX;
+//		x2 = y;
+//		y2 = tempX2;
+		
+		y = y *-1;
+		y2 = y2 *-1;
 		double tempX = x;
 		double tempX2 = x2;
-		x = y;
+		double tempY = y;
+		double tempY2 = y2;
+		x = -y;
 		y = tempX;
-		x2 = y;
+		x2 = -y2;
 		y2 = tempX2;
+		//y = y *-1;
+		//y2 = y2 *-1;
+		x += tempX;
+		y += tempY;
+		x2 += tempX2;
+		y2 += tempY2;
 	}
 	
 	/**
