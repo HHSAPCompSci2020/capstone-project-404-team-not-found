@@ -62,24 +62,19 @@ public class Town {
 		if(daytime) {
 			marker.background(255); //turn background white
 			marker.stroke(0);
+			marker.fill(0);
+			marker.text("DAY", marker.width/2, marker.height/6);
+			marker.text("Blocks left: " + Integer.toString(blockCount - blocks.size()), marker.width/2, marker.height/4);
 		} else {
 			marker.background(100, 100, 230); //turn background dark blue
 			marker.stroke(255);
+			marker.fill(255);
+			marker.text("NIGHT", marker.width/2, marker.height/6);
+			marker.text("Blocks left: " + Integer.toString(blockCount - blocks.size()), marker.width/2, marker.height/4);
 		}
 	
 		for(int i = 0; i < blocks.size(); i++) {
 				blocks.get(i).draw(marker, daytime);
-		}
-		
-		if(daytime) {
-			marker.fill(0);
-			marker.text("DAY", marker.width/2, marker.height/6);
-			marker.text(blockCount - blocks.size(), marker.width/2, marker.height/4);
-		}
-		else {
-			marker.fill(255);
-			marker.text("NIGHT", marker.width/2, marker.height/6);
-			marker.text(blockCount - blocks.size(), marker.width/2, marker.height/4);
 		}
 		
 		marker.line((float)(0), (float)(9 * marker.height/10), (float)(marker.width), (float)(9 * marker.height/10));

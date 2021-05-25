@@ -92,17 +92,14 @@ Credits:
 
 Joanna:
 - Building Block, Town, Menu
-- UML Diagram, README
 
 
 Tarini:
 - TetrisBlock, Tetris, Line, Square, JBlock, LBlock, RectangleBlock, SquareBlock
-- minor help with UML Diagram, README
 
 
 Anya:
 - Main, DrawingSurface, help with Tetris
-- presentation for video, help with UML Diagram, README
 
 
 External Credit:
