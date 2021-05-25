@@ -4,7 +4,6 @@ Revision: 05/24/2021
 
 
 Introduction: 
-[In a few paragraphs totaling about ½ page, introduce the high-level concept of your program. What this looks like depends a lot on what type of thing you are making. An introduction for an application will look different than one for a game. In general, your introduction should address questions like these:
 What does your program do?
 Our program is an interactive and entertaining game, in which differently shaped blocks fall from the top and the user must place blocks accordingly to complete rows on the grid. Every time a row is completed, it disappears and the user gains blocks to use in the town-building part of the game. Once the placed blocks reach the top of the window, the game ends. The user can then use the blocks to build structures such as houses, towers, and other buildings to help rebuild the town and make it look pretty.
 
@@ -34,19 +33,11 @@ The primary features of our program are the falling blocks, moving the blocks, t
 
 
 Instructions:
-[Explain how to use the program. This needs to be specific: 
-Which keyboard keys will do what? 
-Where will you need to click? 
-Will you have menus that need to be navigated? What will they look like? 
-Do actions need to be taken in a certain order?]
-
-
 At the start of the game, a Menu will be shown. Once the player clicks the start button, the Tetris game will start and the player will play Tetris. The left and right arrow keys will move it left and right, until the block stops by hitting the floor or another block. After the Tetris game is finished (the blocks reach the danger line), the game will automatically shift to the town building. The mouse left button will add a block to the clicked location and the mouse right button will remove the clicked block.
 
 
 Features List (THE ONLY SECTION THAT CANNOT CHANGE LATER):
 Must-have Features:
-[These are features that we agree you will definitely have by the project due date. A good final project would have all of these completed. At least 5 are required. Each feature should be fully described (at least a few full sentences for each)]
 * Blocks falling from the sky with different shapes at speeds that increase as the game goes on
 * A way for the player to move blocks to place them how they want to (left and right arrow keys to move blocks)
 * Detect if a row is finished and add blocks based on the points collected to the player’s inventory
@@ -55,7 +46,6 @@ Must-have Features:
 
 
 Want-to-have Features:
-[These are features that you would like to have by the project due date, but you’re unsure whether you’ll hit all of them. A good final project would have perhaps half of these completed. At least 5 are required. Again, fully describe each.]
 * Adding certain objectives and more guidance as to what the player should build in their town with their blocks 
 * Different block colors (possibly some textures?) that the player could choose between when building. 
 * A player icon that could move around the town/building space with WASD keys and the window would move to where the player is going (endless space). The player would be able to move past the edge of the window to build more buildings in the town. 
@@ -64,14 +54,12 @@ Want-to-have Features:
 
 
 Stretch Features:
-[These are features that we agree a fully complete version of this program would have, but that you probably will not have time to implement. A good final project does not necessarily need to have any of these completed at all. At least 3 are required. Again, fully describe each.]
 * Making the block placing space (the town) 3D instead of 2D 
 * Many different block textures and different types of blocks such as wood, stone, glass, dirt etc. Rarer blocks would have to be collected by completing higher levels of tetris or by completing multiple rows at once. The player would get a random assortment of different types of blocks based on probability and rareness of each type of block as they are playing tetris. 
 * A more established storyline where the player had to complete challenges in the town to rebuild and restore it. 
 
 
 Class List:
-[This section lists the Java classes that make up the program and very briefly describes what each represents. It’s totally fine to put this section in list format and not to use full sentences.]
 * Main
 * DrawingSurface: PApplet where everything is drawn
 * Menu: for GUI, has buttons that “start” the game when the user is ready 
@@ -85,21 +73,19 @@ Class List:
 
 
 Credits:
-[Gives credit for project components. This includes both internal credit (your group members) and external credit (other people, websites, libraries). To do this:
-* List the group members and describe how each member contributed to the completion of the final program. This could be classes written, art assets created, leadership/organizational skills exercises, or other tasks. Initially, this is how you plan on splitting the work.
-* Give credit to all outside resources used. This includes downloaded images or sounds, external java libraries, parent/tutor/student coding help, etc.]
-
-
 Joanna:
 - Building Block, Town, Menu
+- UML Diagram, README
 
 
 Tarini:
 - TetrisBlock, Tetris, Line, Square, JBlock, LBlock, RectangleBlock, SquareBlock
+- minor help with UML Diagram, README
 
 
 Anya:
 - Main, DrawingSurface, help with Tetris
+- presentation for video, help with UML Diagram, README
 
 
 External Credit:
