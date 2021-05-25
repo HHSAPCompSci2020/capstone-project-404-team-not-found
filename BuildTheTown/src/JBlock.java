@@ -16,10 +16,10 @@ public class JBlock extends TetrisBlock {
 		super(x, y);
 		this.x = x;
 		this.y = y;
-		squares.add(new Square(x, y));
-		squares.add(new Square(x+30, y));
-		squares.add(new Square(x, y+30));
-		squares.add(new Square(x, y+60));
+		squares.add(new Square(x, y, Color.YELLOW));
+		squares.add(new Square(x+30, y, Color.YELLOW));
+		squares.add(new Square(x, y+30, Color.YELLOW));
+		squares.add(new Square(x, y+60, Color.YELLOW));
 		setSquares(squares);
 		super.setColor(Color.YELLOW);
 	}

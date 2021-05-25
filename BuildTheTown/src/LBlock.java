@@ -20,10 +20,10 @@ public class LBlock extends TetrisBlock {
 		super(x, y);
 		this.x = x;
 		this.y = y;
-		squares.add(new Square(x, y));
-		squares.add(new Square(x, y+30));
-		squares.add(new Square(x, y+60));
-		squares.add(new Square(x+30, y+60));
+		squares.add(new Square(x, y, Color.RED));
+		squares.add(new Square(x, y+30, Color.RED));
+		squares.add(new Square(x, y+60, Color.RED));
+		squares.add(new Square(x+30, y+60, Color.RED));
 		setSquares(squares);
 		super.setColor(Color.RED);
 	}

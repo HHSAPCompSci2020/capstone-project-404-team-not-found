@@ -16,10 +16,10 @@ public class RectangleBlock extends TetrisBlock {
 		super(x, y);
 		this.x = x;
 		this.y = y;
-		squares.add(new Square(x, y));
-		squares.add(new Square(x+30, y));
-		squares.add(new Square(x+60, y));
-		squares.add(new Square(x+90, y));
+		squares.add(new Square(x, y, Color.GREEN));
+		squares.add(new Square(x+30, y, Color.GREEN));
+		squares.add(new Square(x+60, y, Color.GREEN));
+		squares.add(new Square(x+90, y, Color.GREEN));
 		setSquares(squares);
 		setColor(Color.GREEN);
 	}

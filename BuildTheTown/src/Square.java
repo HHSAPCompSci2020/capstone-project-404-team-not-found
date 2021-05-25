@@ -1,3 +1,4 @@
+import java.awt.Color;
 import java.util.ArrayList;
 
 import processing.core.PApplet;
@@ -10,6 +11,7 @@ import processing.core.PApplet;
 public class Square {
 	private ArrayList<Line> lines;
 	private double x, y;
+	private Color color;
 	
 	/**
 	 * Creates a new Square at the specified coordinates of the top left corner
@@ -18,9 +20,10 @@ public class Square {
 	 * @param x X-coordinate of the top-left corner of this Square
 	 * @param y Y-coordinate of the top-left corner of this Square
 	 */
-	public Square(double x, double y) {
+	public Square(double x, double y, Color color) {
 		this.x = x;
 		this.y = y;
+		this.color = color;
 		lines = new ArrayList<Line>();
 		lines.add(new Line(x, y, x+30, y));
 		lines.add(new Line(x+30, y, x+30, y+30));
@@ -45,6 +48,7 @@ public class Square {
 	 * @param marker PApplet to be used to draw the square with
 	 */
 	public void draw(PApplet marker) {
+		marker.fill(color.getRed(), color.getGreen(), color.getBlue());
 		marker.rect((float)x, (float)y, 30, 30);
 	}
 	

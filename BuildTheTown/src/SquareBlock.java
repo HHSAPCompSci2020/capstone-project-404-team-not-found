@@ -13,10 +13,10 @@ public class SquareBlock extends TetrisBlock {
 	 */
 	public SquareBlock(int x, int y) {
 		super(x, y);
-		squares.add(new Square(x, y));
-		squares.add(new Square(x+30, y));
-		squares.add(new Square(x, y+30));
-		squares.add(new Square(x+30, y+30));
+		squares.add(new Square(x, y, Color.BLUE));
+		squares.add(new Square(x+30, y, Color.BLUE));
+		squares.add(new Square(x, y+30, Color.BLUE));
+		squares.add(new Square(x+30, y+30, Color.BLUE));
 		setSquares(squares);
 		super.setColor(Color.BLUE);
 	}
