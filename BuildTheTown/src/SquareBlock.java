@@ -21,10 +21,10 @@ public class SquareBlock extends TetrisBlock {
 		super.setColor(Color.BLUE);
 	}
 
-//	@Override
-//	public void rotate() {
-//		// TODO Auto-generated method stub
-//		
-//	}
+	@Override
+	public void rotate() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 }

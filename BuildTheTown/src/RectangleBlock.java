@@ -4,8 +4,9 @@ import java.util.Random;
 
 public class RectangleBlock extends TetrisBlock {
 
-	private double x,y;
+	//private double x,y;
 	private ArrayList<Square> squares = new ArrayList<Square>();
+	private int numRotate;
 	
 	/**
 	 * Creates a four-square long horizontal Tetris Block at the specified coordinate
@@ -14,8 +15,7 @@ public class RectangleBlock extends TetrisBlock {
 	 */
 	public RectangleBlock(int x, int y) {
 		super(x, y);
-		this.x = x;
-		this.y = y;
+		numRotate = 0;
 		squares.add(new Square(x, y, Color.GREEN));
 		squares.add(new Square(x+30, y, Color.GREEN));
 		squares.add(new Square(x+60, y, Color.GREEN));
@@ -24,18 +24,24 @@ public class RectangleBlock extends TetrisBlock {
 		setColor(Color.GREEN);
 	}
 
-//	@Override
-//	public void rotate() {
-//		for (int i = 0; i < squares.size(); i++) {
-//			squares.get(i).rotate();
-//		}
-//		
-//		double tempX = x;
-//		x = y;
-//		y = tempX;
-//		
-//	}
-
+	@Override
+	public void rotate() {
+		if (numRotate % 2 == 0) {
+			squares.set(0, new Square(getX(), getY(), Color.GREEN));
+			squares.set(1, new Square(getX(), getY()+30, Color.GREEN));
+			squares.set(2, new Square(getX(), getY()+60, Color.GREEN));
+			squares.set(3, new Square(getX(), getY()+90, Color.GREEN));
+			setSquares(squares);
+		} else if (numRotate % 2 == 1) {
+			squares.set(0, new Square(getX(), getY(), Color.GREEN));
+			squares.set(1, new Square(getX()+30, getY(), Color.GREEN));
+			squares.set(2, new Square(getX()+60, getY(), Color.GREEN));
+			squares.set(3, new Square(getX()+90, getY(), Color.GREEN));
+			setSquares(squares);
+		}
+		System.out.println(getX());
+		numRotate++;
+	}
 
 
 }

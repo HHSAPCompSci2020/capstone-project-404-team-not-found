@@ -24,6 +24,7 @@ public abstract class TetrisBlock {
 	public TetrisBlock (int x, int y) {
 		this.x = x;
 		this.y = y;
+		System.out.println("initial X: " + x);
 		velocity = 1;
 
 	}
@@ -64,6 +65,13 @@ public abstract class TetrisBlock {
 		System.out.println("(" + x + "," + y + ")");
 	}
 	
+	public void setY(double y) {
+		this.y = y;
+	}
+	
+	public void setX(double x) {
+		this.x = x;
+	}
 	/**
 	 * Makes this Tetris Block fall (increasing y-value) according to the velocity
 	 */
@@ -72,6 +80,7 @@ public abstract class TetrisBlock {
 			Square square = squares.get(i);
 			square.move(0, velocity);
 		}
+		setY(squares.get(0).getY());
 		
 	}
 	
@@ -84,11 +93,17 @@ public abstract class TetrisBlock {
 		for (int i = 0; i < squares.size(); i++) {
 			if (isRight) {
 				squares.get(i).move(30, 0);
-				x += 30;
+				//System.out.println(x);
 			} else {
 				squares.get(i).move(-30, 0);
-				x -= 30;
+				//System.out.println(x);
 			}
+		}
+		
+		if (isRight) {
+			x += 30;
+		} else {
+			x -=30;
 		}
 	}
 	

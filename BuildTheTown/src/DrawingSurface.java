@@ -96,9 +96,9 @@ public class DrawingSurface extends PApplet{
 	 * An active listener method that checks for what button on the keyboard is pushed and performs the corresponding action
 	 */
 	public void keyPressed() { 
-//		 if (key == 'r' || key == 'R') {
-//			 tetris.getFallingBlock().rotate();
-//		 }
+		 if (key == 'r' || key == 'R') {
+			 tetris.getFallingBlock().rotate();
+		 }
 		 if (keyCode == RIGHT) {
 			 Line right = new Line(780, 0, 780, 561);
 			 //System.out.println(width);
