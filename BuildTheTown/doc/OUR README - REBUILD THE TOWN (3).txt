@@ -29,17 +29,17 @@ Our game is entertaining and playable by people of all ages, of all genders, tha
 
 
 What are the primary features of your program?
-The primary features of our program are the falling blocks, moving the blocks, the rows of blocks disappearing, and adding blocks to the user’s inventory based on the points collected. It also includes a building feature in a different area where the player can use the blocks they collected playing Tetris to build houses and other structures in the town.
+The primary features of our program are the falling blocks, moving the blocks, rotating the blocks, the rows of blocks disappearing, and adding blocks to the user’s inventory based on the points collected. It also includes a building feature in a different area where the player can use the blocks they collected playing Tetris to build houses and other structures in the town.
 
 
 Instructions:
-At the start of the game, a Menu will be shown. Once the player clicks the start button, the Tetris game will start and the player will play Tetris. The left and right arrow keys will move it left and right, until the block stops by hitting the floor or another block. After the Tetris game is finished (the blocks reach the danger line), the game will automatically shift to the town building. The mouse left button will add a block to the clicked location and the mouse right button will remove the clicked block.
+At the start of the game, a Menu will be shown. Once the player clicks the start button, the Tetris game will start and the player will play Tetris. The left and right arrow keys will move it left and right, until the block stops by hitting the floor or another block. Use the “r” key to rotate the falling block 90 degrees clockwise. After the Tetris game is finished (the blocks reach the danger line), the game will automatically shift to the town building. The mouse left button will add a block to the clicked location and the mouse right button will remove the clicked block.
 
 
 Features List (THE ONLY SECTION THAT CANNOT CHANGE LATER):
 Must-have Features:
 * Blocks falling from the sky with different shapes at speeds that increase as the game goes on
-* A way for the player to move blocks to place them how they want to (left and right arrow keys to move blocks)
+* A way for the player to move and rotate blocks to place them how they want to (left and right arrow keys to move blocks) (r to rotate)
 * Detect if a row is finished and add blocks based on the points collected to the player’s inventory
 * An open 2D space where the player has the ability to place the blocks that they have collected by right clicking. They also have the ability to delete blocks by left clicking. 
 * Blocks can be placed anywhere in the space, but will fall downwards until they land on another block or the floor.

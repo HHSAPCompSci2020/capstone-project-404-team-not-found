@@ -50,20 +50,7 @@ public abstract class TetrisBlock {
 	/**
 	 * Rotates this Tetris Block 90 degrees clockwise
 	 */
-	public void rotate() {
-		for (int i = 0; i < squares.size(); i++) {
-			squares.get(i).rotate();
-		}
-		y = y *-1;
-		double tempX = x;
-		double tempY = y;
-		x = -y;
-		y = tempX;
-		//y = y *-1;
-		x += tempX;
-		y += tempY;
-		System.out.println("(" + x + "," + y + ")");
-	}
+	public abstract void rotate();
 	
 	public void setY(double y) {
 		this.y = y;
