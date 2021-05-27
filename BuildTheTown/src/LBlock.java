@@ -29,7 +29,7 @@ public class LBlock extends TetrisBlock {
 	}
 
 	public void rotate() {
-		if (numRotate % 2 == 0) {
+		if (numRotate % 4 == 0) {
 			squares.set(0, new Square(getX(), getY(), Color.RED));
 			squares.set(1, new Square(getX(), getY()+30, Color.RED));
 			squares.set(2, new Square(getX()+30, getY(), Color.RED));
