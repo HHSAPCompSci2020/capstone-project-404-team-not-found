@@ -64,6 +64,9 @@ public class Tetris {
 		marker.fill(fallingBlock.getColor().getRed(), fallingBlock.getColor().getGreen(), fallingBlock.getColor().getBlue());
 		fallingBlock.draw(marker); 
 		fallingBlock.fall();
+		marker.textSize(20);
+		marker.fill(0);
+		marker.text("points: " + points, 60, 20);
 	}
 	
 	/**
