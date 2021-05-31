@@ -69,8 +69,9 @@ public class BuildingBlock {
 			y--;
 		}
 		
-		for(int i = 0; i < blocks.size(); i++) {// if this block is touching any other block, stop
-			if(isTouching(blocks.get(i)) && !blocks.get(i).equals(this))  //               falling
+		for(int i = 0; i < blocks.size(); i++) {// if this block is on any other block, stop falling
+			BuildingBlock b = blocks.get(i);
+			if((b.isPointInRect(x, y + WIDTH) || b.isPointInRect(x + WIDTH, y + WIDTH)) && !b.equals(this))
 				yVelocity = 0;
 		}
 		

@@ -96,8 +96,16 @@ public class Town {
 	 * @param pY The y-coordinate of the point that has been clicked
 	 */
 	public void placeBlock(double pX, double pY) {
-		if(blocks.size() < blockCount)
-			blocks.add(new BuildingBlock(pX - 15, pY - 15)); // block width is 30
+		BuildingBlock blockToPlace = new BuildingBlock(pX - 15, pY - 15); // block width is 30
+		
+		boolean inAnotherBlock = false; // if this block will overlap with another block
+		for(int i = 0; i < blocks.size(); i++) {
+			if(blocks.get(i).isTouching(blockToPlace))
+				inAnotherBlock = true;
+		}
+		
+		if((blocks.size() < blockCount) && !inAnotherBlock)
+			blocks.add(blockToPlace);
 	}
 	
 	/**
